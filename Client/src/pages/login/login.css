@@ -32,7 +32,7 @@
   }
 
   .login-heading{
-    margin: 50px 0;
+    margin: 50px 0 60px 0;
     font-size: 50px;
     font-weight: 600;
     color:rgb(105, 6, 197)
@@ -51,7 +51,7 @@
   
 
   .login-buttons{
-    margin: 40px 0 0 0;
+    margin: 50px 0 0 0;
     width: 70%;
     display: flex;
     justify-content: space-between;
@@ -111,5 +111,16 @@
       .create-account-btn{
         margin: 15px 0 100px 0;
       }
+
+      .login-heading{
+        margin: 40px 0 40px 0;
+      }
+
+      .login-input-field{
+        margin-top: 20px;
+        
+      }
+    
+
 }
   
