@@ -1,13 +1,7 @@
-const express = require('express');
-const connection = require('./database/db')
+const app = require('./app');
 
-const app = express();
-
-const PORT = 8000;
-
-
-connection()
+const PORT = 8080;
 
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`)
+    console.log(`Server is running on ${PORT} port`)
 })
