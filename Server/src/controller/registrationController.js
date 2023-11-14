@@ -2,9 +2,13 @@ const User = require('../models/user')
 
 exports.userRegistration = async (req, res) => {
     try {
-       const user = req.body
-       const newUser = new User(user);
-       await newUser.save();
+      console.log("registration controller")
+       const {name, email, userName, password} = req.body
+       const newUser = await new User({
+         name,email,userName,password
+       }).save();
+
+       console.log(newUser)
  
        return res.status(200).json({
           success: true,
