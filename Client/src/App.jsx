@@ -8,6 +8,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './pages/login/Login'
 import Registration from './pages/registration/Registration';
 
+
+// React toastity
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function App() {
 
   return (
@@ -16,6 +21,18 @@ function App() {
         <Route exact path='/login' element={<Login />}></Route>
         <Route exact path='/registration' element={<Registration />}></Route>
       </Routes>
+      <ToastContainer
+              position="top-center"
+              autoClose={1000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+              />
     </div>
   )
 }

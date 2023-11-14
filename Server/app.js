@@ -11,8 +11,8 @@ const app = express();
 
 // Middlewares
 app.use(express.json());
-app.use(cors);
-app.use(helmet);
+app.use(cors());
+app.use(helmet());
 
 
 // Express rate limit
@@ -28,6 +28,7 @@ app.use(limiter);
 
 //Routes
 readdirSync('./src/routes').map(r => app.use('/api/v1', require(`./src/routes/${r}`)));
+
 
 
 module.exports = app;
