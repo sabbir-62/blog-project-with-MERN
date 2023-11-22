@@ -25,31 +25,40 @@ const Registration = () => {
 
     // Sent data into backend using axios
    
+    const [loading, setLoading] = useState(false);
     const handleClick = async() => {
+        setLoading(true);
         const {name, email, userName, password} = state;
         const registrationUrl = 'http://localhost:8500/api/v1/registration';
 
-        await fetch(registrationUrl, {
-            method: "POST",
-            headers: {
-                "Content-Type" : "application/json"
-            },
-            body: JSON.stringify({
-                name, email, userName, password
+        try{
+            fetch(registrationUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type" : "application/json"
+                },
+                body: JSON.stringify({
+                    name, email, userName, password
+                })
             })
-        })
-       .then((response) => response.json())
-       .then((data) => {
-            if(data.success){
-                toast.success(data.message)
-            }
-            else{
-                toast.error(data.message)
-            }
-       })
-       .catch((error) => {
-        console.log(error)
-       })
+           .then((response) => response.json())
+           .then((data) => {
+                if(data.success){
+                    toast.success(data.message)
+                }
+                else{
+                    toast.error(data.message)
+                }
+           })
+        }
+       catch(error){
+        console.error("Registration failed:", error);
+        toast.error("Registration failed. Please try again.");
+        }
+        finally{
+            setLoading(false)
+        }
+    
     }
 
 
