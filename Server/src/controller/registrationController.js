@@ -4,6 +4,15 @@ exports.userRegistration = async (req, res) => {
     try {
        const {name, email, userName, password} = req.body
 
+       const existingUser = User.findOne({email});
+
+       if(existingUser){
+         return res.status(400).json({
+            success: false,
+            message: "Email already exist"
+         })
+       }
+
        await new User({
          name,email,userName,password
        }).save();
@@ -14,10 +23,9 @@ exports.userRegistration = async (req, res) => {
        });
     }
     catch (error) {
-       console.log(error);
        res.status(500).json({
           success: false,
-          message: 'Registration Failed'
+          message: 'Something Went Wrong!'
        });
     }
  };
