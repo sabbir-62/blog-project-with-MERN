@@ -12,6 +12,7 @@ exports.userRegistration = async (req, res) => {
       const { name, email, userName, password } = req.body //object destructure
 
       const existingUser = await User.findOne({ email: email }); // find user into database by email
+      
       if (existingUser) {
          return res.status(400).json({
             success: false,
@@ -41,7 +42,7 @@ exports.userRegistration = async (req, res) => {
 
       return res.status(200).json({
          success: true,
-         message: 'Registration Successful'
+         message: 'Registration Successful. Please check your email'
       });
    }
    catch (error) {
