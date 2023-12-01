@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt')
 
-// User verification model with otp/token
-const verificationTokenSchema = new mongoose.Schema({
+/*----------User verification model with otp/token----------*/
+const resetPasswordTokenSchema = new mongoose.Schema({
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'users',
@@ -24,7 +24,7 @@ const verificationTokenSchema = new mongoose.Schema({
 )
 
 // Hash token before data save
-verificationTokenSchema.pre('save', async function (next) {
+resetPasswordTokenSchema.pre('save', async function (next) {
     if (this.isModified('token')) {
         const hashToken = await bcrypt.hash(this.token, 8);
         this.token = hashToken
@@ -34,11 +34,11 @@ verificationTokenSchema.pre('save', async function (next) {
 
 
 // compare token for user login
-verificationTokenSchema.methods.compareToken = async function (token) {
+resetPasswordTokenSchema.methods.compareToken = async function (token) {
     const result = await bcrypt.compareSync(token, this.token);
     return result
 }
 
 // sava data into users collection
-const VerificationToken = mongoose.model('verificationToken', verificationTokenSchema);
-module.exports = VerificationToken;
+const resetPasswordToken = mongoose.model('resetPasswordToken', resetPasswordTokenSchema);
+module.exports = resetPasswordToken;
