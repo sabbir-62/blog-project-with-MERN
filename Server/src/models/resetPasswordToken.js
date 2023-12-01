@@ -14,7 +14,7 @@ const resetPasswordTokenSchema = new mongoose.Schema({
     },
     createdAt: {
         type: Date,
-        expires: 60,
+        expires: 3600,
         default: Date.now()
     }
 },
@@ -31,7 +31,6 @@ resetPasswordTokenSchema.pre('save', async function (next) {
     }
     next();
 })
-
 
 // compare token for user login
 resetPasswordTokenSchema.methods.compareToken = async function (token) {

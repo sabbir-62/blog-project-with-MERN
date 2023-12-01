@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt')
 
-// User verification model with otp/token
+/*----------User verification model with otp/token----------*/
 const verificationTokenSchema = new mongoose.Schema({
     owner: {
         type: mongoose.Schema.Types.ObjectId,
@@ -31,7 +31,6 @@ verificationTokenSchema.pre('save', async function (next) {
     }
     next();
 })
-
 
 // compare token for user login
 verificationTokenSchema.methods.compareToken = async function (token) {

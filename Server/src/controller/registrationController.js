@@ -2,7 +2,7 @@
 const User = require('../models/user')
 const VerificationToken = require('../models/verificationToken')
 const { generateOTP } = require('../utilities/mail');
-const {SendEmailUtility} = require('../utilities/mail')
+const { SendEmailUtility } = require('../utilities/mail')
 
 
 
@@ -12,7 +12,7 @@ exports.userRegistration = async (req, res) => {
       const { name, email, userName, password } = req.body //object destructure
 
       const existingUser = await User.findOne({ email: email }); // find user into database by email
-      
+
       if (existingUser) {
          return res.status(400).json({
             success: false,
@@ -27,22 +27,23 @@ exports.userRegistration = async (req, res) => {
 
       //get otp and save database
       const otp = generateOTP();
-      const verificationToken = new VerificationToken({
+      const verificationToken = await new VerificationToken({
          owner: newUser._id,
          token: otp
       })
-
-      // OTP send into email
-      let EmailText = "Your verification code is " + otp;
-      await SendEmailUtility(email, EmailText, "Email Verification");
 
       // user data save into database
       await verificationToken.save();
       await newUser.save();
 
+      // OTP send into email
+      let EmailText = "Your verification code is: " + `<span style="color:red">${otp}</span>`;
+      await SendEmailUtility(email, EmailText, "Email Verification");
+
+      // final response
       return res.status(200).json({
          success: true,
-         message: 'Registration Successful. Please check your email'
+         message: 'Registration Successful. Please check your email and verify your account'
       });
    }
    catch (error) {

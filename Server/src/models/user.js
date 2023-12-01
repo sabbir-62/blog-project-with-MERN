@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt')
 
-// User model
+
+/*----------User model----------*/
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -46,7 +47,6 @@ userSchema.pre('save', async function(next){
 
     next();
 })
-
 
 // compare password for user login
 userSchema.methods.comparePassword = async function(password){
