@@ -1,17 +1,17 @@
 import { Routes, Route } from 'react-router-dom';
-
 import './App.css';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 //Components import
 import Login from './pages/login/Login'
-import Registration from './pages/registration/Registration';
+import RegistrationPage from './pages/registration/RegistrationPage';
 
 
 // React toastity
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
 
@@ -19,7 +19,7 @@ function App() {
     <div className='app-container'>
       <Routes>
         <Route exact path='/login' element={<Login />}></Route>
-        <Route exact path='/registration' element={<Registration />}></Route>
+        <Route exact path='/registration' element={<RegistrationPage />}></Route>
       </Routes>
       <ToastContainer
               position="top-center"

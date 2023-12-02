@@ -1,0 +1,74 @@
+.registrationContainer {
+  background-image: url("../../assets/background.jpg");
+  background-size: 100% 100%;
+  background-position: center;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.registrationBox{
+  width: 30vw;
+  display: flex;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  border-radius: 8px;
+  background-color: white;
+  padding: 50px;
+}
+
+
+@media only screen and (max-width: 1291px){
+  .registrationBox{
+    width: 40vw;
+  }
+}
+
+@media only screen and (max-width: 1167px){
+  .registrationBox{
+    width: 50vw;
+  }
+}
+
+@media only screen and (max-width: 991px){
+  .registrationBox{
+    width: 55vw;
+  }
+}
+
+@media only screen and (max-width: 767px){
+  .registrationBox{
+    width: 60vw;
+  }
+}
+
+@media only screen and (max-width: 667px){
+  .registrationBox{
+    width: 70vw;
+  }
+}
+
+@media only screen and (max-width: 567px){
+  .registrationBox{
+    width: 80vw;
+  }
+}
+
+@media only screen and (max-width: 467px){
+  .registrationBox{
+    width: 90vw;
+    padding: 30px;
+  }
+}
+
+@media only screen and (max-width: 367px){
+  .registrationBox{
+    width: 90vw;
+    padding: 20px;
+  }
+  .registrationForm{
+    width: 100%;
+  }
+}

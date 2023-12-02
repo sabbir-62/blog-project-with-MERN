@@ -1,6 +1,5 @@
 
 import { useNavigate } from "react-router-dom";
-import Blog from "../../assets/Blog.jpg"
 
 import "./login.css"
 
@@ -22,9 +21,6 @@ const Login = () => {
                         <button className="login-btn btn">Login</button>
                         <button className="login-btn create-account-btn btn" onClick={registrationPage}>Create account</button>
                     </div>
-                </div>
-                <div className="image">
-                    <img src={Blog} className="login-image" alt="Blog image" />
                 </div>
            </div>
         </div>

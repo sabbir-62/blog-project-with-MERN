@@ -2,12 +2,11 @@
 import { toast } from 'react-toastify';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Blog from "../../assets/Blog.jpg"
-import "./registration.css"
+import Styles from "./registration.module.css"
 
 
 /*----------Registration Component----------*/
-const Registration = () => {
+const RegistrationForm = () => {
     const [state, setState] = useState({
         name: "",
         email: "",
@@ -70,25 +69,18 @@ const Registration = () => {
 
     //Return JSX
     return (
-        <div className="registration-container">
-           <div className="registration-box">
-                <div className="input-form">
-                    <h1 className="registration-heading">Registration</h1>
-                    <input className="registration-input-field" placeholder="Enter Your Name" onChange={(e)=>setValues("name", e.target.value)}/>
-                    <input className="registration-input-field" placeholder="Enter Your Email" onChange={(e)=>setValues("email", e.target.value)}/>
-                    <input className="registration-input-field" placeholder="Enter Your UserName" onChange={(e)=>setValues("userName", e.target.value)}/>
-                    <input className="registration-input-field" placeholder="Password" onChange={(e)=>setValues("password", e.target.value)}/>
-                    <div className="registration-buttons">
-                        <button className="registration-btn btn" onClick={handleClick}>Submit</button>
-                        <button className="registration-btn create-account-btn btn" onClick={loginPage}>Already a user</button>
+                <div className={Styles.inputForm}>
+                    <h1 className={Styles.registrationHeading}>Registration</h1>
+                    <input className={Styles.registrationInputField} placeholder="Enter Your Name" onChange={(e)=>setValues("name", e.target.value)}/>
+                    <input className={Styles.registrationInputField} placeholder="Enter Your Email" onChange={(e)=>setValues("email", e.target.value)}/>
+                    <input className={Styles.registrationInputField} placeholder="Enter Your UserName" onChange={(e)=>setValues("userName", e.target.value)}/>
+                    <input className={Styles.registrationInputField} placeholder="Password" onChange={(e)=>setValues("password", e.target.value)}/>
+                    <div className={Styles.registrationButtons}>
+                        <button className={`btn ${Styles.registrationBtn}`}  onClick={handleClick}>Submit</button>
+                        <button className={`btn ${Styles.registrationBtn}`} onClick={loginPage}>Already a user</button>
                     </div>
                 </div>
-                <div className="image">
-                    <img src={Blog} className="registration-image" alt="Blog image" />
-                </div>
-           </div>
-        </div>
     );
 };
 
-export default Registration;
+export default RegistrationForm;
