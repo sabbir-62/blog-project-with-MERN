@@ -4,9 +4,9 @@ import Styles from "./resetPasswordPage.module.css"
 
 const ResetPasswordPage = () => {
   return (
-    <div className={Styles.loginContainer}>
-      <div className={Styles.loginBox}>
-        <div className={Styles.loginForm}>
+    <div className={Styles.resetContainer}>
+      <div className={Styles.resetBox}>
+        <div className={Styles.resetForm}>
           <ResetPassword />
         </div>
       </div>

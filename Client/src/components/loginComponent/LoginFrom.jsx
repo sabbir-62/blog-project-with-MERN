@@ -70,7 +70,7 @@ const LoginFrom = () => {
             <h1 className={Styles.loginHeading}>Login</h1>
             <input className={Styles.loginInputField} placeholder="Enter Your Email" onChange={(e)=>setValues("email", e.target.value)}/>
             <input className={Styles.loginInputField} placeholder="Password" onChange={(e)=>setValues("password", e.target.value)}/>
-            <NavLink className={Styles.forgetBtn} to="/forget-password">Forget Password?</NavLink>
+            <NavLink className={Styles.forgetBtn} to="/forget-password">Forgot Password?</NavLink>
             <div className={Styles.loginButtons}>
                 <button className={`btn ${Styles.loginBtn}`}  onClick={handleClick}>Submit</button>
                 <button className={`btn ${Styles.loginBtn}`} onClick={registrationPage}>Not a user</button>

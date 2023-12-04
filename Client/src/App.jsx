@@ -6,7 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //Components import
 import LoginPage from './pages/login/LoginPage'
 import RegistrationPage from './pages/registration/RegistrationPage';
-import ResetPasswordPage from './pages/resetPassword/ResetPasswordPage'
+import ResetPasswordPage from './pages/resetPassword/ResetPasswordPage';
+import ForgetPasswordPage from './pages/forgetPassword/ForgetPasswordPage';
 
 
 // React toastity
@@ -22,7 +23,10 @@ function App() {
         <Route exact path='/login' element={<LoginPage />}></Route>
         <Route exact path='/registration' element={<RegistrationPage />}></Route>
         <Route exact path='/reset-password' element={<ResetPasswordPage />}></Route>
+        <Route exact path='/forget-password' element={<ForgetPasswordPage />}></Route>
       </Routes>
+
+
       <ToastContainer
               position="top-center"
               autoClose={1000}

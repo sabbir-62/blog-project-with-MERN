@@ -87,16 +87,20 @@ const ResetPassword = () => {
     
     }
 
+    const loginPage = () => {
+        navigate('/login')
+    }
+
 
     // return jsx
     return (
-        <div className={Styles.inputForm}>
-            <h1 className={Styles.loginHeading}>Reset Password</h1>
-            <input type="password" className={Styles.loginInputField} placeholder="Enter New Password"  onChange={(e)=>setValues("password", e.target.value)}/>
-            <input type="password" className={Styles.loginInputField} placeholder="Confirm Password"  onChange={(e)=>setValues("confirmPassword", e.target.value)}/>
-            <div className={Styles.loginButtons}>
-                <button className={`btn ${Styles.loginBtn}`} onClick={handleClick} >Submit</button>
-                <button className={`btn ${Styles.loginBtn}`} >Not a user</button>
+        <div className={Styles.resetForm}>
+            <h1 className={Styles.resetHeading}>Reset Password</h1>
+            <input type="password" className={Styles.resetInputField} placeholder="Enter New Password"  onChange={(e)=>setValues("password", e.target.value)}/>
+            <input type="password" className={Styles.resetInputField} placeholder="Confirm Password"  onChange={(e)=>setValues("confirmPassword", e.target.value)}/>
+            <div className={Styles.resetButtons}>
+                <button className={`btn ${Styles.resetBtn}`} onClick={handleClick} >Submit</button>
+                <button className={`btn ${Styles.resetBtn}`} onClick={loginPage} >Cancel</button>
             </div>
         </div>
     );
