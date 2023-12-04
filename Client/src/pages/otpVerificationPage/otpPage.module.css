@@ -1,0 +1,27 @@
+.forgetContainer {
+    background-image: url("../../assets/background.jpg");
+    background-size: 100% 100%;
+    background-position: center;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  
+  .forgetBox{
+    display: flex;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    border-radius: 8px;
+    background-color: white;
+    padding: 70px 30px;
+  }
+  
+  
+  @media only screen and (max-width: 567px){
+    .forgetBox{
+     margin: 30px;
+    }
+  }

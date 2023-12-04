@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.otpHeading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 30px;
+  font-weight: 600;
+  color:rgb(105, 6, 197)
+}
+
+.otpText{
+  padding-bottom: 50px;
+}
+
+.otpField {
+  width: 50px; 
+  height: 50px; 
+  text-align: center;
+  margin: 0 5px;
+  border: none;
+  background-color:rgb(188, 243, 225);
+  border-radius: 10px;
+}
+
+.otpButtons{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+.resendOTP{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  cursor: pointer;
+}

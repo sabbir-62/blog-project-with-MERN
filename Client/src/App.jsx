@@ -8,6 +8,7 @@ import LoginPage from './pages/login/LoginPage'
 import RegistrationPage from './pages/registration/RegistrationPage';
 import ResetPasswordPage from './pages/resetPassword/ResetPasswordPage';
 import ForgetPasswordPage from './pages/forgetPassword/ForgetPasswordPage';
+import OTPPage from './pages/otpVerificationPage/OTPPage';
 
 
 // React toastity
@@ -24,6 +25,7 @@ function App() {
         <Route exact path='/registration' element={<RegistrationPage />}></Route>
         <Route exact path='/reset-password' element={<ResetPasswordPage />}></Route>
         <Route exact path='/forget-password' element={<ForgetPasswordPage />}></Route>
+        <Route exact path='/verify-email' element={<OTPPage />}></Route>
       </Routes>
 
 

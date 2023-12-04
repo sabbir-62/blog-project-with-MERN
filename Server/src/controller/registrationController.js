@@ -30,7 +30,7 @@ exports.userRegistration = async (req, res) => {
       }
 
       // create new user
-      const newUser = new User({
+      const newUser = await new User({
          name, email, userName, password
       })
 
@@ -45,15 +45,16 @@ exports.userRegistration = async (req, res) => {
       await verificationToken.save();
       await newUser.save();
 
+       // final response
+       res.status(200).json({
+         success: true,
+         message: 'Registration Successful. Please check your email and verify your account',
+         user: newUser
+      });
+
       // OTP send into email
       let EmailText = "Your verification code is: " + `<span style="color:red">${otp}</span>`;
       await SendEmailUtility(email, EmailText, "Email Verification");
-
-      // final response
-      return res.status(200).json({
-         success: true,
-         message: 'Registration Successful. Please check your email and verify your account'
-      });
    }
    catch (error) {
       console.log(error)

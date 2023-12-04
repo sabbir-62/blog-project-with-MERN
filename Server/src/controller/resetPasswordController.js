@@ -47,17 +47,18 @@ exports.forgetPassword = async (req, res) => {
 
         const url = `http://localhost:5173/reset-password?token=${newToken}&id=${existingUser._id}`
 
-        // OTP send into email
-        let EmailText = `<a href=${url}><button style="background-color:#C0392B; color:white; font-size: 15px; padding:15px; border:none; border-radius:10px; cursor:pointer">Reset Password</button></a>`;
-        await SendEmailUtility(email, EmailText, "Forget Password");
-
         // final success response
-        return res.status(200).json({
+        res.status(200).json({
             success: true,
             message: "Password reset link is sent to your email",
             user: existingUser,
             token: newToken
         })
+
+        // OTP send into email
+        let EmailText = `<a href=${url}><button style="background-color:#C0392B; color:white; font-size: 15px; padding:15px; border:none; border-radius:10px; cursor:pointer">Reset Password</button></a>`;
+        await SendEmailUtility(email, EmailText, "Forget Password");
+
     }
     catch (error) {
         console.log(error)
@@ -143,17 +144,16 @@ exports.resetPassword = async (req, res) => {
         // delete token from resetPasswordToken collection
         await resetPasswordToken.findByIdAndDelete(resetToken._id)
 
-        // success message send into email
-        let EmailText = "Password reset successful"
-        await SendEmailUtility(existingUser.email, EmailText, "Password Reset");
-
-
         // final success response
-        return res.status(200).json({
+        res.status(200).json({
             success: true,
             message: "Password reset successful",
             user: existingUser
         })
+
+        // success message send into email
+        let EmailText = "Password reset successful"
+        await SendEmailUtility(existingUser.email, EmailText, "Password Reset");
     }
     catch (error) {
         console.log(error)

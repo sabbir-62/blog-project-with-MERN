@@ -25,40 +25,42 @@ const RegistrationForm = () => {
     const [loading, setLoading] = useState(false);
 
     // Sent data into backend using fetch
-    const handleClick = async() => {
+    const handleClick = async () => {
         setLoading(true);
-        const {name, email, userName, password} = state;
+        const { name, email, userName, password } = state;
         const registrationUrl = 'http://localhost:8500/api/v1/registration';
-
-        try{
-            fetch(registrationUrl, {
-                method: "POST",
-                headers: {
-                    "Content-Type" : "application/json"
-                },
-                body: JSON.stringify({
-                    name, email, userName, password
-                })
-            })
-           .then((response) => response.json())
-           .then((data) => {
-                if(data.success){
-                    toast.success(data.message)
-                }
-                else{
-                    toast.error(data.message)
-                }
-           })
+      
+        try {
+          const response = await fetch(registrationUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              name,
+              email,
+              userName,
+              password,
+            }),
+          });
+      
+          const data = await response.json();
+      
+          if (data.success) {
+            const userId = data.user._id;
+            toast.success(data.message);
+            navigate(`/verify-email?id=${userId}`);
+          } else {
+            toast.error(data.message);
+          }
+        } catch (error) {
+          console.error('Registration failed:', error);
+          toast.error('Registration failed. Please try again.');
+        } finally {
+          setLoading(false);
         }
-       catch(error){
-        console.error("Registration failed:", error);
-        toast.error("Registration failed. Please try again.");
-        }
-        finally{
-            setLoading(false)
-        }
-    
-    }
+      };
+      
 
     //Navigate login page
     const navigate = useNavigate()

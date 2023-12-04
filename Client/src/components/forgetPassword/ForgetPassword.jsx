@@ -45,6 +45,7 @@ const ForgetPassword = () => {
                .then((response) => response.json())
                .then((data) => {
                     if(data.success){
+                        navigate("/login")
                         toast.success(data.message);
                     }
                     else{
@@ -75,7 +76,7 @@ const ForgetPassword = () => {
             <h1 className={Styles.forgetHeading}>Forgot Password</h1>
             <input type="email" className={Styles.forgetInputField} placeholder="Enter Your Email"  onChange={(e)=>setValues("email", e.target.value)}/>
             <div className={Styles.forgetButtons}>
-                <button className={`btn ${Styles.forgetBtn}`} onClick={handleClick} >Submit</button>
+                <button className={`btn ${Styles.forgetBtn}`} onClick={handleClick} >Send LInk</button>
                 <button className={`btn ${Styles.forgetBtn}`} onClick={loginPage} >Back to login </button>
             </div>
         </div>

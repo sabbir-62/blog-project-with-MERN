@@ -73,16 +73,15 @@ exports.verifyEmail = async (req, res) => {
         // update and save user verified status
         await existingUser.save();
 
-        // Verification status send into email
-        let EmailText = "Congratulations. Your account has been verified";
-        await SendEmailUtility(existingUser.email, EmailText, "Email Verification");
-
         // success response
-        return res.status(200).json({
+        res.status(200).json({
             success: true,
             message: 'User verification successful'
         });
 
+        // Verification status send into email
+        let EmailText = "Congratulations. Your account has been verified";
+        await SendEmailUtility(existingUser.email, EmailText, "Email Verification");
     }
     catch (error) {
         console.log(error)
