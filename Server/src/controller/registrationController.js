@@ -11,12 +11,21 @@ exports.userRegistration = async (req, res) => {
    try {
       const { name, email, userName, password } = req.body //object destructure
 
-      const existingUser = await User.findOne({ email: email }); // find user into database by email
-
+      // find user into database by email
+      const existingUser = await User.findOne({ email }); 
       if (existingUser) {
          return res.status(400).json({
             success: false,
             message: "Email already exist"
+         })
+      }
+
+      // find user into database by userName
+      const existingUserName = await User.findOne({ userName })
+      if (existingUserName) {
+         return res.status(400).json({
+            success: false,
+            message: "UserName already exist"
          })
       }
 

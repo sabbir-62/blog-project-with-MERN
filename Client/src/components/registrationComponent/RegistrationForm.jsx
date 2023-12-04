@@ -21,10 +21,10 @@ const RegistrationForm = () => {
             [key]: value
         })
     }
-
-    // Sent data into backend using axios
    
     const [loading, setLoading] = useState(false);
+
+    // Sent data into backend using fetch
     const handleClick = async() => {
         setLoading(true);
         const {name, email, userName, password} = state;
@@ -59,7 +59,6 @@ const RegistrationForm = () => {
         }
     
     }
-
 
     //Navigate login page
     const navigate = useNavigate()

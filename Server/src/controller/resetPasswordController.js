@@ -31,7 +31,7 @@ exports.forgetPassword = async (req, res) => {
         if (token) {
             return res.status(400).json({
                 success: false,
-                message: "Please try after 1 hour"
+                message: "Please check your email or try after 1 hour"
             })
         }
 
@@ -45,7 +45,7 @@ exports.forgetPassword = async (req, res) => {
         })
         await resetToken.save();
 
-        const url = `http://localhost:3000/reset-password?token=${newToken}&id=${existingUser._id}`
+        const url = `http://localhost:5173/reset-password?token=${newToken}&id=${existingUser._id}`
 
         // OTP send into email
         let EmailText = `<a href=${url}><button style="background-color:#C0392B; color:white; font-size: 15px; padding:15px; border:none; border-radius:10px; cursor:pointer">Reset Password</button></a>`;
@@ -76,8 +76,7 @@ exports.forgetPassword = async (req, res) => {
 exports.resetPassword = async (req, res) => {
     try{
         // Object destructure
-        const {token, id} = req.query;
-        const {password} = req.body;
+        const {token, id, password} = req.body;
         if(!token || !id){
             return res.status(400).json({
                 success: false,

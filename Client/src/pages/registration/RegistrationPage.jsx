@@ -1,5 +1,4 @@
 import RegistrationForm from "./../../components/registrationComponent/RegistrationForm";
-
 import Styles from "./registrationPage.module.css";
 
 const RegistrationPage = () => {
