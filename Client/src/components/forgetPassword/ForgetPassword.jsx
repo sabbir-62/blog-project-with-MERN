@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 
 
-/*----------Reset Password----------*/
+/*----------Forget Password----------*/
 const ForgetPassword = () => {
     const [state, setState] = useState({
      email: ""
@@ -20,9 +20,7 @@ const ForgetPassword = () => {
         })
     }
 
-
     const navigate = useNavigate()
-
 
     const [loading, setLoading] = useState(false);
     // Sent data into backend using fetch

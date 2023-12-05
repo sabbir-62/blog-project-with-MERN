@@ -25,7 +25,7 @@ const LoginFrom = () => {
     // Sent data into backend using fetch
     const handleClick = async() => {
         setLoading(true);
-        const {name, email, userName, password} = state;
+        const {email, password} = state;
         const registrationUrl = 'http://localhost:8500/api/v1/login';
 
         try{
@@ -41,10 +41,15 @@ const LoginFrom = () => {
            .then((response) => response.json())
            .then((data) => {
                 if(data.success){
+                    navigate('/home')
                     toast.success(data.message)
                 }
-                else{
+                else if(data.success == false){
                     toast.error(data.message)
+                }
+                else if(!data.user.verified){
+                    navigate(`/verify-email?id=${data.user._id}`);
+                    toast.success(data.message);
                 }
            })
         }

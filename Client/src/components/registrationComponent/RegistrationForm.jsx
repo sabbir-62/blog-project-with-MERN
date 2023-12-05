@@ -48,8 +48,8 @@ const RegistrationForm = () => {
       
           if (data.success) {
             const userId = data.user._id;
-            toast.success(data.message);
             navigate(`/verify-email?id=${userId}`);
+            toast.success(data.message);
           } else {
             toast.error(data.message);
           }
