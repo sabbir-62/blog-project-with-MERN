@@ -1,8 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
-import { useState } from "react";
+import { useState, useContext} from "react";
 import Styles from "./login.module.css"
 import { NavLink } from "react-router-dom";
+import { DataContext } from "../contextApi/DataProvider";
+
+
 
 /*----------Login form----------*/
 const LoginFrom = () => {
@@ -10,6 +13,9 @@ const LoginFrom = () => {
         email: "",
         password: ""
     })
+
+    // user context
+    const {setAccount} = useContext(DataContext)
 
     //Set form value into state
     const setValues = (key, value) => {
@@ -29,7 +35,7 @@ const LoginFrom = () => {
         const registrationUrl = 'http://localhost:8500/api/v1/login';
 
         try{
-            fetch(registrationUrl, {
+            await fetch(registrationUrl, {
                 method: "POST",
                 headers: {
                     "Content-Type" : "application/json"
@@ -41,7 +47,9 @@ const LoginFrom = () => {
            .then((response) => response.json())
            .then((data) => {
                 if(data.success){
-                    navigate('/home')
+                    sessionStorage.setItem('access token', `${data.token}`)
+                    setAccount({name: data.user.name, email: data.user.email, userName: data.user.userName})
+                    navigate('/')
                     toast.success(data.message)
                 }
                 else if(data.success == false){
