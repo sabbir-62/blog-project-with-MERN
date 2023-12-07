@@ -1,0 +1,24 @@
+.navWrapper {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #ffffff;
+    z-index: 1;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.nav-content {
+    transition: height 0.3s ease-in-out;
+}
+
+.show {
+    height: 100%;
+}
+
+@media (max-width: 991px) {
+    .navWrapper {
+        z-index: 1;
+    }
+}

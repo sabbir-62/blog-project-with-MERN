@@ -3,7 +3,7 @@
 const HomeComponent = () => {
     return (
         <div>
-            This is Home page
+            This is Home page. lorem200
         </div>
     );
 };

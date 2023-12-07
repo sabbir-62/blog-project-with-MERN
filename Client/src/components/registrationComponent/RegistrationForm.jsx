@@ -72,10 +72,10 @@ const RegistrationForm = () => {
     return (
                 <div className={Styles.inputForm}>
                     <h1 className={Styles.registrationHeading}>Registration</h1>
-                    <input className={Styles.registrationInputField} placeholder="Enter Your Name" onChange={(e)=>setValues("name", e.target.value)}/>
-                    <input className={Styles.registrationInputField} placeholder="Enter Your Email" onChange={(e)=>setValues("email", e.target.value)}/>
-                    <input className={Styles.registrationInputField} placeholder="Enter Your UserName" onChange={(e)=>setValues("userName", e.target.value)}/>
-                    <input className={Styles.registrationInputField} placeholder="Password" onChange={(e)=>setValues("password", e.target.value)}/>
+                    <input type='text' className={Styles.registrationInputField} placeholder="Enter Your Name" onChange={(e)=>setValues("name", e.target.value)}/>
+                    <input type='text' className={Styles.registrationInputField} placeholder="Enter Your Email" onChange={(e)=>setValues("email", e.target.value)}/>
+                    <input type='text' className={Styles.registrationInputField} placeholder="Enter Your UserName" onChange={(e)=>setValues("userName", e.target.value)}/>
+                    <input type='password' className={Styles.registrationInputField} placeholder="Password" onChange={(e)=>setValues("password", e.target.value)}/>
                     <div className={Styles.registrationButtons}>
                         <button className={`btn ${Styles.registrationBtn}`}  onClick={handleClick}>Submit</button>
                         <button className={`btn ${Styles.registrationBtn}`} onClick={loginPage}>Already a user</button>

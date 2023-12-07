@@ -5,6 +5,7 @@ const { login } = require('../controller/loginController');
 const { verifyEmail } = require('../controller/verifyEmailController');
 const { forgetPassword, resetPassword } = require('../controller/resetPasswordController');
 const { resendOTP } = require('../controller/resendOTP');
+
 const router = express.Router();
 
 
@@ -14,5 +15,6 @@ router.post('/verify-email', verifyEmail)
 router.post('/forget-password', forgetPassword)
 router.post('/reset-password', resetPassword)
 router.post('/resend-otp', resendOTP)
+
 
 module.exports = router

@@ -76,7 +76,7 @@ exports.verifyEmail = async (req, res) => {
         // success response
         res.status(200).json({
             success: true,
-            message: 'User verification successful'
+            message: 'User verification successful. Please Login'
         });
 
         // Verification status send into email

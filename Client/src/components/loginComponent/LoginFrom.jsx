@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { useState, useContext} from "react";
-import Styles from "./login.module.css"
+import Styles from "./login.module.css";
 import { NavLink } from "react-router-dom";
-import { DataContext } from "../contextApi/DataProvider";
+import { DataContext, LoginContext } from "../contextApi/DataProvider";
+
 
 
 
@@ -16,6 +17,7 @@ const LoginFrom = () => {
 
     // user context
     const {setAccount} = useContext(DataContext)
+    const {setLoggedIn} = useContext(LoginContext)
 
     //Set form value into state
     const setValues = (key, value) => {
@@ -47,9 +49,10 @@ const LoginFrom = () => {
            .then((response) => response.json())
            .then((data) => {
                 if(data.success){
-                    sessionStorage.setItem('access token', `${data.token}`)
+                    localStorage.setItem('access token', `${data.token}`)
                     setAccount({name: data.user.name, email: data.user.email, userName: data.user.userName})
-                    navigate('/')
+                    setLoggedIn(true)
+                    navigate('/home')
                     toast.success(data.message)
                 }
                 else if(data.success == false){
@@ -81,8 +84,8 @@ const LoginFrom = () => {
     return (
         <div className={Styles.inputForm}>
             <h1 className={Styles.loginHeading}>Login</h1>
-            <input className={Styles.loginInputField} placeholder="Enter Your Email" onChange={(e)=>setValues("email", e.target.value)}/>
-            <input className={Styles.loginInputField} placeholder="Password" onChange={(e)=>setValues("password", e.target.value)}/>
+            <input type="text" className={Styles.loginInputField} placeholder="Enter Your Email" onChange={(e)=>setValues("email", e.target.value)}/>
+            <input type="password" className={Styles.loginInputField} placeholder="Password" onChange={(e)=>setValues("password", e.target.value)}/>
             <NavLink className={Styles.forgetBtn} to="/forget-password">Forgot Password?</NavLink>
             <div className={Styles.loginButtons}>
                 <button className={`btn ${Styles.loginBtn}`}  onClick={handleClick}>Submit</button>
