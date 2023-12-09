@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const loginUser = require('../models/loginUser');
+//const loginUser = require('../models/loginUser');
 const User = require('../models/user')
 const VerificationToken = require('../models/verificationToken')
 const { generateOTP } = require('../utilities/mail');
@@ -20,7 +20,7 @@ exports.login = async (req, res) => {
 
       // find user into database by email
       const existingUser = await User.findOne({ email });
-      const existingLoginUser = await loginUser.findOne({ email })
+      // const existingLoginUser = await loginUser.findOne({ email })
 
       if (!existingUser) {
          return res.status(401).json({
@@ -29,12 +29,12 @@ exports.login = async (req, res) => {
          })
       }
 
-      if (existingLoginUser) {
-         return res.status(400).json({
-            success: false,
-            message: "User already logged in"
-         })
-      }
+      // if (existingLoginUser) {
+      //    return res.status(400).json({
+      //       success: false,
+      //       message: "User already logged in"
+      //    })
+      // }
 
       const isMatched = await existingUser.comparePassword(password); // password matching
 
@@ -70,13 +70,13 @@ exports.login = async (req, res) => {
          const token = jwt.sign({ userId: existingUser._id }, process.env.JWT_SECRETKEY)
 
          // save login user into loginUser collection
-         const newLoginUser = await new loginUser({
-            owner: existingUser._id,
-            email,
-            password,
-            token
-         })
-         await newLoginUser.save();
+         // const newLoginUser = await new loginUser({
+         //    owner: existingUser._id,
+         //    email,
+         //    password,
+         //    token
+         // })
+         // await newLoginUser.save();
 
 
          return res.status(200).json({

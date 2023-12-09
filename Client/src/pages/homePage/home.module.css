@@ -1,0 +1,33 @@
+.bannerImage {
+    background-image: url("../../public/banner.jpg");
+    width: 100%;
+    height: 80vh;
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat-x;
+}
+
+
+
+@media only screen and (max-width: 1391px){
+    .bannerImage {
+        height: 50vh;
+    }
+  }
+
+  @media only screen and (max-width: 801px){
+    .bannerImage {
+        height: 40vh;
+    }
+  }
+  @media only screen and (max-width: 667px){
+    .bannerImage {
+        height: 30vh;
+    }
+  }
+
+  @media only screen and (max-width: 467px){
+    .bannerImage {
+        height: 20vh;
+    }
+  }

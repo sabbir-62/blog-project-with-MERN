@@ -52,7 +52,7 @@ const LoginFrom = () => {
                     localStorage.setItem('access token', `${data.token}`)
                     setAccount({name: data.user.name, email: data.user.email, userName: data.user.userName})
                     setLoggedIn(true)
-                    navigate('/home')
+                    navigate('/')
                     toast.success(data.message)
                 }
                 else if(data.success == false){

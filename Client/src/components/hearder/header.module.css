@@ -1,16 +1,20 @@
 .navWrapper {
     width: 100%;
-    position: fixed;
+    /* position: fixed; */
+    background-color: #fff;
     top: 0;
-    background-color: #ffffff;
     z-index: 1;
-    padding: 10px;
+    padding: 5px 50px;
     text-align: center;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
 .nav-content {
     transition: height 0.3s ease-in-out;
+}
+
+.navLink{
+    font-weight: 600;
 }
 
 .show {

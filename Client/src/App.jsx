@@ -29,7 +29,6 @@ import { LoginContext } from "./components/contextApi/DataProvider";
 function App() {
   const { isLoggedIn, setLoggedIn } = useContext(LoginContext);
   const getToken = localStorage.getItem('access token');
-
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -41,7 +40,7 @@ function App() {
       navigate('/login')
       toast.warning("Please login")
     }
-  }, [getToken, setLoggedIn, navigate]);
+  }, [setLoggedIn]);
 
 
 
@@ -72,6 +71,9 @@ function App() {
             <Route exact path="/reset-password" element={<ResetPasswordPage />} />
             <Route exact path="/forget-password" element={<ForgetPasswordPage />} />
             <Route exact path="/verify-email" element={<OTPPage />} />
+
+             {/* pages */}
+             <Route exact path="/" element={<Home />} />
         </Routes>
       )}
 
