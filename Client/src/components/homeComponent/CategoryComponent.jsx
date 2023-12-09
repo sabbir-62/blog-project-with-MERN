@@ -1,26 +1,33 @@
 import Styles from "./category.module.css"
+import {Link} from "react-router-dom"
 
 
 const CategoryComponent = () => {
-    const categories = ["Movies", "Musics", "Sports", "Fashion", "Tech"];
+    const categories = ["Food", "Programming", "Robotics", "Electronics", "Networking"];
 
     return (
-        <div>
-            <button className={`btn btn-primary ${Styles.blogBtn}`}>CREATE BLOG</button>
-            <table className={`table ${Styles.table}`}>
-                <thead>
-                    <tr>
-                        <th>All Categories</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {categories.map((item, i) => (
-                        <tr key={i}>
-                            <td>{item}</td>
+        <div className={`container ${Styles.container}`}>
+            <div className={Styles.contents}>
+                <button className={`btn ${Styles.blogBtn}`}><Link className={Styles.link} style={{color:"white"}} to="/create-blog">CREATE BLOG</Link></button>
+                <table className={`table ${Styles.table}`}>
+                    <thead>
+                        <tr className={Styles.row}>
+                            <th className={Styles.category}>All Categories</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {categories.map((item, i) => (
+                            <tr key={i} className={Styles.row}>
+                                <td className={Styles.category}>
+                                  <Link className={Styles.link} to={`/?category=${item}`}>
+                                       {item}
+                                  </Link>
+                             </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };

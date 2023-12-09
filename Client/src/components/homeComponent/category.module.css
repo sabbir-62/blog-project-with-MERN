@@ -2,10 +2,36 @@
     border: 1px solid rgba(224, 224, 224, 1)
 }
 
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contents{
+    width: 90%;
+    text-align: center;
+}
+
 .blogBtn{
-    margin: 20px;
-    width: 85%;
-    background: #6495ED;
+    margin: 30px 0;
+    padding: 10px;
+    background-color: #3498db;
     color: #fff;
-    
+    width: 100%;
+}
+
+.blogBtn:hover {
+    background-color: #2980b9;
+    color: #fff;
+  }
+
+.row{
+    height: 50px;
+    vertical-align: middle
+}
+
+.link{
+    text-decoration: none;
+    color: #000;
 }

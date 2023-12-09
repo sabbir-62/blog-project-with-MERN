@@ -14,6 +14,7 @@ import RegistrationPage from "./pages/registration/RegistrationPage";
 import ResetPasswordPage from "./pages/resetPassword/ResetPasswordPage";
 import ForgetPasswordPage from "./pages/forgetPassword/ForgetPasswordPage";
 import OTPPage from "./pages/otpVerificationPage/OTPPage";
+import CreateBlogPage from "./pages/createBlogPage/CreateBlogPage";
 
 // Import components
 import Header from "./components/hearder/Header";
@@ -60,6 +61,7 @@ function App() {
 
             {/* pages */}
             <Route exact path="/" element={<Home />} />
+            <Route exact path="/create-blog" element={<CreateBlogPage />} />
           </Routes>
         </div>
       ) : (

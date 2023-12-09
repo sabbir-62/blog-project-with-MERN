@@ -1,6 +1,6 @@
 
 import { NavLink} from 'react-router-dom';
-//import Logo from '../../assets/pictures/logo.png';
+import { toast } from 'react-toastify';
 import Styles from './header.module.css';
 import { useContext, useState } from 'react';
 import { LoginContext } from '../contextApi/DataProvider';
@@ -19,6 +19,7 @@ const Header = () => {
     const handleLogout = () => {
         localStorage.removeItem('access token')
         setLoggedIn(false)
+        toast.warning("Please Login")
     }
 
 
