@@ -1,16 +1,26 @@
 // DataProvider.jsx
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import PropTypes from 'prop-types';
 
 // Data context
 const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
-    const [account, setAccount] = useState({
-        name: "",
-        email: "",
-        userName: ""
+    const [account, setAccount] = useState(() => {
+        // Try to retrieve account from localStorage on initial load
+        const storedAccount = localStorage.getItem('account');
+        return storedAccount ? JSON.parse(storedAccount) : {
+            id: "",
+            name: "",
+            email: "",
+            userName: ""
+        };
     });
+
+    // Update localStorage whenever account changes
+    useEffect(() => {
+        localStorage.setItem('account', JSON.stringify(account));
+    }, [account]);
 
     return (
         <DataContext.Provider value={{

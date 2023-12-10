@@ -16,7 +16,7 @@ const LoginFrom = () => {
     })
 
     // user context
-    const {setAccount} = useContext(DataContext)
+    const {account, setAccount} = useContext(DataContext)
     const {setLoggedIn} = useContext(LoginContext)
 
     //Set form value into state
@@ -50,7 +50,7 @@ const LoginFrom = () => {
            .then((data) => {
                 if(data.success){
                     localStorage.setItem('access token', `${data.token}`)
-                    setAccount({name: data.user.name, email: data.user.email, userName: data.user.userName})
+                    setAccount({id: data.user._id, name: data.user.name, email: data.user.email, userName: data.user.userName})
                     setLoggedIn(true)
                     navigate('/')
                     toast.success(data.message)

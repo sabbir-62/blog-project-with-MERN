@@ -10,8 +10,9 @@ const expressRateLimit = require('express-rate-limit')
 const app = express();
 
 // Middlewares
-app.use(express.json());
-app.use(cors());
+app.use(express.json({ limit: '50mb' })); // Adjust the limit according to your needs
+app.use(express.urlencoded({ extended: true, limit: '50mb' })); // Adjust the limit according to your needs
+app.use(cors({ origin: 'http://localhost:5173' }));
 app.use(helmet());
 
 
