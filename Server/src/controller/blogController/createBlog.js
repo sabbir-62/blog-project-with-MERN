@@ -3,10 +3,10 @@ const Blog = require("../../models/blogModel")
 
 // Create a new blog
 exports.createBlog = async (req, res) => {
-    const { id, image, category, title, description } = req.body
+    const { id, name, image, category, title, description } = req.body
 
     try {
-        if (!id || !image || !category || !title || !description) {
+        if (!id || !name || !image || !category || !title || !description) {
             return res.status(400).json({
                 success: false,
                 message: "All fields are required"
@@ -14,6 +14,7 @@ exports.createBlog = async (req, res) => {
         }
         const newBlog = await new Blog({
             owner: id,
+            name,
             image,
             category,
             title,
@@ -42,6 +43,29 @@ exports.createBlog = async (req, res) => {
 exports.readAllBlog = async(req, res) => {
     try {
         const blogs = await Blog.find()
+
+        res.status(200).json({
+            success: true,
+            message: "Successful",
+            blogs
+        })
+    }
+    catch (error) {
+        console.log(error)
+        return res.status(500).json({
+            success: false,
+            message: 'Something Went Wrong!',
+            error: error
+        })
+    }
+}
+
+
+//read blog by category
+exports.readBlogByCategory = async(req, res) => {
+    const {category} = req.body
+    try {
+        const blogs = await Blog.find({category:category})
 
         res.status(200).json({
             success: true,

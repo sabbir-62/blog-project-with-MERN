@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 const CreateBlog = () => {
   const [selectText, setSelectText] = useState("Select Image")
   const [state, setState] = useState({
+    name: "",
     file: "",
     category: "",
     title: "",
@@ -67,7 +68,7 @@ const CreateBlog = () => {
                         "Content-Type" : "application/json"
                     },
                     body: JSON.stringify({
-                        id: account.id, image: file, category, title, description
+                        id: account.id, name: account.name, image: file, category, title, description
                     })
                 })
                .then((response) => response.json())
@@ -98,11 +99,11 @@ const CreateBlog = () => {
         </label>
         <select className={`${Styles.selectCategory}`} name="category" value={state.category} onChange={handleValueChange}>
           <option value="" disabled>Category</option>
-          <option value="movies">Movies</option>
-          <option value="music">Music</option>
-          <option value="sports">Sports</option>
-          <option value="fashion">Fashion</option>
-          <option value="tech">Tech</option>
+          <option value="Food">Foods</option>
+          <option value="Programming">Programming</option>
+          <option value="Robotics">Robotics</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Networking">Networking</option>
         </select>
         <input className={Styles.title} placeholder="Enter Blog Title" name="title" onChange={handleValueChange} />
         <button className={`btn ${Styles.addBtn}`} onClick={handleAddBlogClick}>

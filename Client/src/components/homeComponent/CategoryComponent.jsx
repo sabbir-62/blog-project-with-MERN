@@ -12,7 +12,11 @@ const CategoryComponent = () => {
                 <table className={`table ${Styles.table}`}>
                     <thead>
                         <tr className={Styles.row}>
-                            <th className={Styles.category}>All Categories</th>
+                        <td className={Styles.category}>
+                                  <Link className={Styles.link} to="/">
+                                       All Categories
+                                  </Link>
+                             </td>
                         </tr>
                     </thead>
                     <tbody>

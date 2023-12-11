@@ -7,10 +7,10 @@ const Home = () => {
     <div>
       <div className={Styles.bannerImage}></div>
       <div className={`row ${Styles.row}`}>
-        <div className="col-md-2">
+        <div className="col-md-3">
           <CategoryComponent />
         </div>
-        <div className="col-md-10">
+        <div className="col-md-9">
           <ReadAllBlogs />
         </div>
       </div>
