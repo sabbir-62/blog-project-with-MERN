@@ -12,3 +12,32 @@
     background-position: center;
     border-radius: 10px;
 }
+
+
+@media only screen and (max-width: 991px) {
+   .bannerImage{
+    height: 50vh;
+   }
+  
+  }
+
+  @media only screen and (max-width: 667px) {
+    .bannerImage{
+     height: 40vh;
+    }
+   
+   }
+
+   @media only screen and (max-width: 501px) {
+    .bannerImage{
+     height: 30vh;
+    }
+   
+   }
+
+   @media only screen and (max-width: 367px) {
+    .bannerImage{
+     height: 20vh;
+    }
+   
+   }

@@ -3,10 +3,12 @@ import { useContext, useState } from "react";
 import { toast } from 'react-toastify';
 import Styles from "./createBlog.module.css";
 import { DataContext } from "../contextApi/DataProvider";
+import { useNavigate } from "react-router-dom";
 
 
 /*----------Create Blog Component----------*/
 const CreateBlog = () => {
+  const [selectText, setSelectText] = useState("Select Image")
   const [state, setState] = useState({
     file: "",
     category: "",
@@ -16,6 +18,9 @@ const CreateBlog = () => {
 
   // get id from context api
   const {account} = useContext(DataContext)
+  
+  //navigate
+  const navigate  = useNavigate()
 
   // convert image into base64
   async function convertToBase64(file) {
@@ -39,6 +44,7 @@ const CreateBlog = () => {
       ...state,
       file: base64
     });
+    setSelectText("Selected")
   };
 
     // Handle file input change
@@ -67,6 +73,7 @@ const CreateBlog = () => {
                .then((response) => response.json())
                .then((data) => {
                     if(data.success){
+                        navigate("/")
                         toast.success(data.message);
                     }
                     else{
@@ -83,10 +90,10 @@ const CreateBlog = () => {
 
 
   return (
-    <>
+    <div className={Styles.container}>
       <div className={Styles.box}>
-        <label className={Styles.selectFileLabel}>
-          Select Image
+        <label className={Styles.selectFileLabel} style={{ background: selectText === "Selected" ? "#4BB543" : "#3498db" }}>
+          {selectText}
           <input className={Styles.selectFile} accept=".jpeg, .png, .jpg" type="file" name="file" onChange={handleFileChange} />
         </label>
         <select className={`${Styles.selectCategory}`} name="category" value={state.category} onChange={handleValueChange}>
@@ -111,7 +118,7 @@ const CreateBlog = () => {
           onChange={handleValueChange}
         ></textarea>
       </div>
-    </>
+    </div>
   );
 };
 

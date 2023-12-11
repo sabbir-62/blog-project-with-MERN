@@ -1,6 +1,7 @@
 const Blog = require("../../models/blogModel")
 
 
+// Create a new blog
 exports.createBlog = async (req, res) => {
     const { id, image, category, title, description } = req.body
 
@@ -36,3 +37,24 @@ exports.createBlog = async (req, res) => {
     }
 }
 
+
+// Read all blogs
+exports.readAllBlog = async(req, res) => {
+    try {
+        const blogs = await Blog.find()
+
+        res.status(200).json({
+            success: true,
+            message: "Successful",
+            blogs
+        })
+    }
+    catch (error) {
+        console.log(error)
+        return res.status(500).json({
+            success: false,
+            message: 'Something Went Wrong!',
+            error: error
+        })
+    }
+}

@@ -1,10 +1,13 @@
 /* createBlog.module.css */
-
+.container {
+  position: relative;
+  height: 30rem;
+}
 .box {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 .selectFile {
@@ -12,9 +15,8 @@
 }
 
 .selectFileLabel {
-  background-color: #3498db;
+  margin: 0 30px 30px 0;
   color: #fff;
-  padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
   display: inline-block;
@@ -27,16 +29,17 @@
 
 .title {
   flex: 1;
-  margin: 30px;
   border: none;
   outline: none;
   font-size: 20px;
+  margin: 0 30px 30px 0;
 }
 
 .addBtn {
   background-color: #3498db;
   color: #fff;
   padding: 10px 50px;
+  margin: 0 0 30px 0;
 }
 
 .addBtn:hover {
@@ -45,23 +48,55 @@
 }
 
 .selectCategory {
-  margin-left: 30px;
   border: none;
   outline: none;
   font-size: 20px;
+  margin: 0 30px 30px 0;
 }
 
-.blogContent {}
+.blogContent {
+  height: 20rem;
+  overflow: hidden;
+}
 
 .blogText {
   width: 100%;
-  height: 20rem;
-  padding-top: 30px;
+  height: 18rem;
   font-size: 20px;
   border: none;
   outline: none;
 }
 
 @media only screen and (max-width: 991px) {
- 
+  .container{
+    height:31rem;
+  }
+   .addBtn{
+    position: absolute;
+    bottom: 0;
+   }
+
+}
+
+@media only screen and (max-width: 767px) {
+  .container{
+    height:33rem;
+  }
+}
+
+@media only screen and (max-width: 731px) {
+  .title{
+    margin-left: 0;
+  }
+}
+
+@media only screen and (max-width: 377px) {
+  .container{
+    height:35rem;
+  }
+
+  .addBtn{
+    width: 100%;
+  }
+
 }
