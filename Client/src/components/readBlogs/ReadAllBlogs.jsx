@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import Styles from "./readAllBlogs.module.css";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 
 /*----------Read All Blogs----------*/
@@ -10,6 +10,7 @@ const ReadAllBlogs = () => {
   const [searchParams] = useSearchParams()
 
   let category = searchParams.get('category')
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleAddBlogClick = async () => {
@@ -52,6 +53,11 @@ const ReadAllBlogs = () => {
     handleAddBlogClick();
   }, [category]);
 
+
+  const blogDetails = async (id) => {
+    navigate(`/details/${id}`)
+  }
+
   return (
     <div className={Styles.container}>
       {blogs.map((blog, index) => (
@@ -65,10 +71,10 @@ const ReadAllBlogs = () => {
           </div>
           <div className={`card-body ${Styles.cardBody}`}>
             <p className={`card-category text-muted ${Styles.category}`}>{blog.category}</p>
+            <h5 className={`card-title ${Styles.title}`}>{blog.title}</h5>
             <p className={`card-category text-muted ${Styles.category}`}>{blog.name}</p>
-            <h2 className="card-title">{blog.title}</h2>
-            <br></br>
             <p className={`card-text ${Styles.cardText}`}>{blog.description}</p>
+            <button className={`${Styles.detailsBtn}`} onClick={() => blogDetails(blog._id)}>Details</button>
           </div>
         </div>
       ))}

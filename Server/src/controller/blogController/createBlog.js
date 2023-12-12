@@ -40,7 +40,7 @@ exports.createBlog = async (req, res) => {
 
 
 // Read all blogs
-exports.readAllBlog = async(req, res) => {
+exports.readAllBlog = async (req, res) => {
     try {
         const blogs = await Blog.find()
 
@@ -62,15 +62,38 @@ exports.readAllBlog = async(req, res) => {
 
 
 //read blog by category
-exports.readBlogByCategory = async(req, res) => {
-    const {category} = req.body
+exports.readBlogByCategory = async (req, res) => {
+    const { category } = req.body
     try {
-        const blogs = await Blog.find({category:category})
+        const blogs = await Blog.find({ category: category })
 
         res.status(200).json({
             success: true,
             message: "Successful",
             blogs
+        })
+    }
+    catch (error) {
+        console.log(error)
+        return res.status(500).json({
+            success: false,
+            message: 'Something Went Wrong!',
+            error: error
+        })
+    }
+}
+
+
+// Specific blog details by id
+
+exports.blogDetails = async (req, res) => {
+    const { id } = req.body;
+    try {
+        const blog = await Blog.findById(id)
+        return res.status(200).json({
+            success: true,
+            message: "Success",
+            blog
         })
     }
     catch (error) {

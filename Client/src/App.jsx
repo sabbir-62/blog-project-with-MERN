@@ -22,6 +22,7 @@ import Header from "./components/hearder/Header";
 //context api
 import { useContext, useEffect } from "react";
 import { LoginContext } from "./components/contextApi/DataProvider";
+import BlogDetails from "./components/readBlogs/BlogDetails";
 
 
 
@@ -62,6 +63,7 @@ function App() {
             {/* pages */}
             <Route exact path="/" element={<Home />} />
             <Route exact path="/create-blog" element={<CreateBlogPage />} />
+            <Route exact path="/details/:id" element={<BlogDetails />} />
           </Routes>
         </div>
       ) : (

@@ -1,0 +1,18 @@
+.container {
+  border: 1px solid red;
+}
+.imageWrapper {
+  border: 1px solid green;
+  height: 600px;
+  position: relative;
+}
+
+.blogImage {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

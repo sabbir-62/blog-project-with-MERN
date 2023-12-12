@@ -12,7 +12,6 @@ exports.validateUser = [
         .withMessage("Name must be 3 to 20 characters long"),
 
     check("email")
-        .normalizeEmail()
         .isEmail()
         .withMessage("Email is invalid"),
 

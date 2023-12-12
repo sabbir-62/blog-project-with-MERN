@@ -11,7 +11,7 @@ exports.login = async (req, res) => {
    try {
       const { email, password } = req.body; //object destructure
 
-      if (!email.trim() || !password.trim()) {
+      if (!email || !password) {
          return res.status(401).json({
             success: false,
             message: 'Email/Password is required'

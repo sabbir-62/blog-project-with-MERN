@@ -3,11 +3,12 @@
   margin-right: 30px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 20px;
+  
 }
 
 .carImageWrapper {
+  height: 220px;
   position: relative;
-  padding-top: 100%;
 }
 
 .cardImgTop {
@@ -25,6 +26,7 @@
     text-align: center;
 }
 
+
 .cardText {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -33,14 +35,35 @@
   text-overflow:ellipsis
 }
 
+.title {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow:ellipsis
+}
 
-@media only screen and (max-width: 1191px){
+
+.detailsBtn{
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  background-color: #3498db;
+  color: #fff;
+}
+
+.detailsBtn:hover{
+  background-color: #2980b9;
+}
+
+@media only screen and (max-width: 1367px){
     .container{
       grid-template-columns: 1fr 1fr 1fr;
     }
   }
 
-  @media only screen and (max-width: 867px){
+  @media only screen and (max-width: 991px){
     .container{
       grid-template-columns: 1fr 1fr;
     }
