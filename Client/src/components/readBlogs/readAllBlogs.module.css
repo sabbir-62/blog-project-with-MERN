@@ -6,6 +6,11 @@
   
 }
 
+.card{
+  border-radius: 10px;
+  overflow: hidden;
+}
+
 .carImageWrapper {
   height: 220px;
   position: relative;

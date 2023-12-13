@@ -1,8 +1,7 @@
 .container {
-  border: 1px solid red;
+
 }
 .imageWrapper {
-  border: 1px solid green;
   height: 600px;
   position: relative;
 }
@@ -15,4 +14,51 @@
   bottom: 0;
   left: 0;
   right: 0;
+  border-radius: 0 0 10px 10px;
+}
+
+.flatIcons{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.icon {
+    height: 17px;
+    width: 17px;
+    margin-right: 0;
+    cursor: pointer;
+    border: 1px solid gray;
+    border-radius: 7px;
+    padding: 7px;
+    transition: 0.1s ease-in, border 0.1s ease-in;
+    box-sizing: content-box;
+  }
+  
+  .icon:hover {
+    transform: scale3d(1.2, 1.2, 1);
+  }
+
+.title{
+    text-align: center;
+    margin: 20px;
+    word-break: break-word;
+}
+
+.authorAndDate{
+    display: flex;
+}
+
+.authorName{
+    flex:1
+}
+
+.name{
+    font-weight: 600;
+}
+
+.description{
+    word-break: break-word;
+    margin-top: 40px;
 }
