@@ -1,9 +1,20 @@
-.container {
+.container{
+  height: 100%;
+}
+
+.box {
   display: grid;
   margin-right: 30px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 20px;
   
+}
+
+.loader{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card{
@@ -63,19 +74,19 @@
 }
 
 @media only screen and (max-width: 1367px){
-    .container{
+    .box{
       grid-template-columns: 1fr 1fr 1fr;
     }
   }
 
   @media only screen and (max-width: 991px){
-    .container{
+    .box{
       grid-template-columns: 1fr 1fr;
     }
   }
 
   @media only screen and (max-width: 367px){
-    .container{
+    .box{
       grid-template-columns: 1fr;
     }
   }

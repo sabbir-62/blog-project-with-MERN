@@ -1,7 +1,7 @@
 /* createBlog.module.css */
 .container {
   position: relative;
-  height: 30rem;
+  height: 26rem;
 }
 .box {
   display: flex;
@@ -61,7 +61,7 @@
 
 .blogText {
   width: 100%;
-  height: 18rem;
+  height: 19rem;
   font-size: 20px;
   border: none;
   outline: none;

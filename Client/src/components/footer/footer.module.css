@@ -1,43 +1,26 @@
-.footerText {
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .footer {
-    background-color: #202633;
-    width: 100%;
-    padding: 2rem 0; /* Add some padding for better spacing on small screens */    
+    background-color: black;
+    color: white;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
 }
 
-.footer p{
-    padding: 0 40px;
+.footerText{
+    margin: 0;
+    display: inline-block;
 }
 
-/* Media Query for screens with a maximum width of 768px (typical for mobile devices) */
-
-@media (max-width: 768px) {
-    .footer-text {
-        align-items: center;
-    }
-
-    .footer {
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
+.copyright{
+    padding-right: 3px;
 }
 
-
-@media (max-width: 467px) {
-    .footer {
-        padding: 1rem 0;
-    }
-    .footer p{
-        padding: 0 10px;
-    }
+.developerName{
+    padding-left: 3px;
 }
-

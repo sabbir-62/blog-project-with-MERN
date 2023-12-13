@@ -2,9 +2,12 @@ import { useState, useEffect } from "react";
 import { toast } from 'react-toastify';
 import Styles from "./createBlog.module.css";
 import { useNavigate, useParams } from "react-router-dom";
+import { BeatLoader } from "react-spinners";
+
 
 const UpdateBlog = () => {
   const [selectText, setSelectText] = useState("Select Image");
+  const [loading, setLoading] = useState(true)
   const { id } = useParams();
   const [blog, setBlog] = useState({
     id: "",
@@ -42,6 +45,7 @@ const UpdateBlog = () => {
             description: data.blog.description
           });
           setSelectText("Selected");
+          setLoading(false)
         } else {
           toast.error(data.message);
         }
@@ -117,6 +121,12 @@ const UpdateBlog = () => {
   };
 
   return (
+    <div>
+      {loading ? (
+      <div className="loader">
+          <BeatLoader color={"#36d7b7"} loading={loading} size={15} />
+      </div>
+  ) : (
     <div className={Styles.container}>
       <div className={Styles.box}>
         <label className={Styles.selectFileLabel} style={{ background: selectText === "Selected" ? "#4BB543" : "#3498db" }}>
@@ -146,6 +156,7 @@ const UpdateBlog = () => {
           value={blog.description}
         ></textarea>
       </div>
+    </div>)}
     </div>
   );
 };

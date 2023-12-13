@@ -48,47 +48,47 @@ const CreateBlog = () => {
     setSelectText("Selected")
   };
 
-    // Handle file input change
-  const handleValueChange = async(e) => {
-    setState({
-      ...state,
-      [e.target.name]: e.target.value
+  // Handle textarea input change
+const handleValueChange = (e) => {
+  setState({
+    ...state,
+    [e.target.name]: e.target.value,
+  });
+};
+
+// Handle button click
+const handleAddBlogClick = async () => {
+  const registrationUrl = 'http://localhost:8500/api/v1/create-blog';
+  const { file, category, title, description } = state;
+
+  try {
+    const response = await fetch(registrationUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        id: account.id,
+        name: account.name,
+        image: file,
+        category,
+        title,
+        description
+      }),
     });
-  };
 
-
-  // Handle button click
-  const handleAddBlogClick = async() => {
-    const registrationUrl = 'http://localhost:8500/api/v1/create-blog';
-    const {file, category, title, description} = state
-            try{
-                fetch(registrationUrl, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type" : "application/json"
-                    },
-                    body: JSON.stringify({
-                        id: account.id, name: account.name, image: file, category, title, description
-                    })
-                })
-               .then((response) => response.json())
-               .then((data) => {
-                    if(data.success){
-                        navigate("/")
-                        toast.success(data.message);
-                    }
-                    else{
-                        toast.error(data.message)
-                    }
-               })
-            }
-           catch(error){
-            console.error("Failed", error);
-            toast.error("Fail. Please try again.");
-            }
-  };
-
-
+    const data = await response.json();
+    if (data.success) {
+      navigate('/');
+      toast.success(data.message);
+    } else {
+      toast.error(data.message);
+    }
+  } catch (error) {
+    console.error('Failed', error);
+    toast.error('Fail. Please try again.');
+  }
+};
 
   return (
     <div className={Styles.container}>
@@ -111,13 +111,13 @@ const CreateBlog = () => {
         </button>
       </div>
       <div className={Styles.blogContent}>
-        <textarea
-          name="description"
-          className={Styles.blogText}
-          id="blog-content"
-          placeholder="Write Your Blog Descriptions..."
-          onChange={handleValueChange}
-        ></textarea>
+      <textarea
+        name="description"
+        className={Styles.blogText}
+        id="blog-content"
+        placeholder="Write Your Blog Descriptions..."
+        value={state.description}
+        onChange={handleValueChange}></textarea>
       </div>
     </div>
   );

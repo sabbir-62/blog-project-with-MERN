@@ -15,15 +15,15 @@ import ResetPasswordPage from "./pages/resetPassword/ResetPasswordPage";
 import ForgetPasswordPage from "./pages/forgetPassword/ForgetPasswordPage";
 import OTPPage from "./pages/otpVerificationPage/OTPPage";
 import CreateBlogPage from "./pages/createBlogPage/CreateBlogPage";
+import UpdateBlogPage from './pages/updateBlogPage/UpdateBlogPage';
 
 // Import components
 import Header from "./components/hearder/Header";
-import BlogDetails from "./components/readBlogs/BlogDetails";
+import ReadBlogPage from "./pages/readBlogPage/ReadBlogPage";
 
 //context api
 import { useContext, useEffect } from "react";
 import { LoginContext } from "./components/contextApi/DataProvider";
-import UpdateBlogPage from './pages/updateBlogPage/UpdateBlogPage';
 import Footer from "./components/footer/Footer";
 
 
@@ -67,7 +67,7 @@ function App() {
             {/* pages */}
             <Route exact path="/" element={<Home />} />
             <Route exact path="/create-blog" element={<CreateBlogPage />} />
-            <Route exact path="/details/:id" element={<BlogDetails />} />
+            <Route exact path="/details/:id" element={<ReadBlogPage />} />
             <Route exact path="/update/:id" element={<UpdateBlogPage />} />
           </Routes>
           <Footer />

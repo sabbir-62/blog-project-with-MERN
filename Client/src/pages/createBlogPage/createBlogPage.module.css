@@ -10,7 +10,7 @@
     height: 70vh;
     background-size: cover;
     background-position: center;
-    border-radius: 10px;
+    border-radius: 0 0 10px 10px;
 }
 
 

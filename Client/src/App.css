@@ -1,0 +1,16 @@
+.min-height{
+    min-height: calc(100vh - 80px);
+}
+
+.app-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}

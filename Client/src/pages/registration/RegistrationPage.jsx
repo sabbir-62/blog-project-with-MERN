@@ -3,13 +3,15 @@ import Styles from "./registrationPage.module.css";
 
 const RegistrationPage = () => {
   return (
-    <div className={Styles.registrationContainer}>
-      <div className={Styles.registrationBox}>
-        <div className={Styles.registrationForm}>
-          <RegistrationForm />
+
+      <div className={Styles.registrationContainer}>
+        <div className={Styles.registrationBox}>
+          <div className={Styles.registrationForm}>
+            <RegistrationForm />
+          </div>
         </div>
       </div>
-    </div>
+
   );
 };
 

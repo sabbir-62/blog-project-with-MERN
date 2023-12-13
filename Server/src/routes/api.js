@@ -5,7 +5,7 @@ const { login } = require('../controller/loginController');
 const { verifyEmail } = require('../controller/verifyEmailController');
 const { forgetPassword, resetPassword } = require('../controller/resetPasswordController');
 const { resendOTP } = require('../controller/resendOTP');
-const { createBlog, readAllBlog, readBlogByCategory, blogDetails } = require('../controller/blogController/createBlog');
+const { createBlog, readAllBlog, readBlogByCategory, blogDetails, deleteBlog } = require('../controller/blogController/createBlog');
 const { updateBlog } = require('../controller/blogController/updateBlog');
 
 const router = express.Router();
@@ -21,5 +21,6 @@ router.get('/read-blog', readAllBlog);
 router.post('/read-blog-by-category', readBlogByCategory)
 router.post('/blog-details', blogDetails)
 router.post('/update-blog', updateBlog)
+router.post('/delete-blog', deleteBlog)
 
 module.exports = router;

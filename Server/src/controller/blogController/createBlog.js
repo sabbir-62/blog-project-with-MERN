@@ -67,6 +67,12 @@ exports.readBlogByCategory = async (req, res) => {
     try {
         const blogs = await Blog.find({ category: category })
 
+        if(!blogs){
+            return res.status(400).json({
+                success: false,
+                message: "Blog not found"
+            })
+        }
         res.status(200).json({
             success: true,
             message: "Successful",
@@ -90,9 +96,44 @@ exports.blogDetails = async (req, res) => {
     const { id } = req.body;
     try {
         const blog = await Blog.findById(id)
+        if(!blog){
+            return res.status(400).json({
+                success: false,
+                message: "Blog not found"
+            })
+        }
         return res.status(200).json({
             success: true,
             message: "Success",
+            blog
+        })
+    }
+    catch (error) {
+        console.log(error)
+        return res.status(500).json({
+            success: false,
+            message: 'Something Went Wrong!',
+            error: error
+        })
+    }
+}
+
+
+//delete blog
+exports.deleteBlog = async (req, res) => {
+    const { id } = req.body;
+    try {
+        const blog = await Blog.findByIdAndDelete(id)
+        if(!blog){
+            return res.status(400).json({
+                success: false,
+                message: "Blog not found"
+            })
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: "Blog is deleted",
             blog
         })
     }

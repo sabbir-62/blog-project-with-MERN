@@ -1,15 +1,19 @@
-.container {
+.container{
+  margin-top: 50px;
 }
+
+
 .imageWrapper {
-  height: 600px;
+  height: 500px;
   position: relative;
+  text-align: center;
 }
 
 .blogImage {
   height: 100%;
   width: 100%;
-  object-fit: contain;
-  border-radius: 0 0 10px 10px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .flatIcons {
@@ -59,5 +63,25 @@
 
 .description {
   word-break: break-word;
-  margin-top: 40px;
+  margin: 40px 0;
+}
+
+
+@media only screen and (max-width: 767px){
+  .imageWrapper {
+    height: 400px;
+   
+  }
+}
+@media only screen and (max-width: 467px){
+  .imageWrapper {
+    height: 300px;
+   
+  }
+}
+@media only screen and (max-width: 367px){
+  .imageWrapper {
+    height: 250px;
+   
+  }
 }
