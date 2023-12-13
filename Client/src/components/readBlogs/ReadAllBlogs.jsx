@@ -13,31 +13,29 @@ const ReadAllBlogs = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    const handleAddBlogClick = async () => {
-    let response;
+    const readAllBlogClick = async () => {
       try {
-        if(!category){
-            const registrationUrl = "http://localhost:8500/api/v1/read-blog";
-            response = await fetch(registrationUrl, {
-            method: "GET",
-            headers: {
+        const registrationUrl = category
+          ? "http://localhost:8500/api/v1/read-blog-by-category"
+          : "http://localhost:8500/api/v1/read-blog";
+    
+        const response = await fetch(registrationUrl, {
+          method: category ? "POST" : "GET",
+          headers: {
             "Content-Type": "application/json",
           },
+          body: category
+            ? JSON.stringify({
+                category,
+              })
+            : undefined,
         });
+    
+        if (response.status === 429) {
+          console.log("Too many requests. Implement exponential backoff.");
+          return;
         }
-        else{
-            const registrationUrl = "http://localhost:8500/api/v1/read-blog-by-category";
-            response = await fetch(registrationUrl, {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                  category
-                }),
-              });
-        }
-
+    
         const data = await response.json();
         if (data.success) {
           setBlogs(data.blogs);
@@ -49,8 +47,9 @@ const ReadAllBlogs = () => {
         toast.error("Fail. Please try again.");
       }
     };
+    
 
-    handleAddBlogClick();
+    readAllBlogClick();
   }, [category]);
 
 

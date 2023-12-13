@@ -19,7 +19,7 @@ app.use(helmet());
 // Express rate limit
 const limiter = expressRateLimit({
     window: 1 * 60 * 1000,
-    max: 10,
+    max: 100,
     message: 'Too many request sent from this ip. Please try again after 1 minute',
     standardHeaders: true,
     legacyHeaders: false

@@ -1,0 +1,43 @@
+.footerText {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.footer {
+    background-color: #202633;
+    width: 100%;
+    padding: 2rem 0; /* Add some padding for better spacing on small screens */    
+}
+
+.footer p{
+    padding: 0 40px;
+}
+
+/* Media Query for screens with a maximum width of 768px (typical for mobile devices) */
+
+@media (max-width: 768px) {
+    .footer-text {
+        align-items: center;
+    }
+
+    .footer {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
+
+
+@media (max-width: 467px) {
+    .footer {
+        padding: 1rem 0;
+    }
+    .footer p{
+        padding: 0 10px;
+    }
+}
+

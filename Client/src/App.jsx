@@ -18,11 +18,15 @@ import CreateBlogPage from "./pages/createBlogPage/CreateBlogPage";
 
 // Import components
 import Header from "./components/hearder/Header";
+import BlogDetails from "./components/readBlogs/BlogDetails";
 
 //context api
 import { useContext, useEffect } from "react";
 import { LoginContext } from "./components/contextApi/DataProvider";
-import BlogDetails from "./components/readBlogs/BlogDetails";
+import UpdateBlogPage from './pages/updateBlogPage/UpdateBlogPage';
+import Footer from "./components/footer/Footer";
+
+
 
 
 
@@ -64,7 +68,9 @@ function App() {
             <Route exact path="/" element={<Home />} />
             <Route exact path="/create-blog" element={<CreateBlogPage />} />
             <Route exact path="/details/:id" element={<BlogDetails />} />
+            <Route exact path="/update/:id" element={<UpdateBlogPage />} />
           </Routes>
+          <Footer />
         </div>
       ) : (
         <Routes>
