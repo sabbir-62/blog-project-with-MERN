@@ -97,6 +97,10 @@ const BlogDetails = () => {
    )
   }
 
+
+  //get account information from local storage
+  const account = JSON.parse(localStorage.getItem('account'));
+
   return (
     <div className="container">
       {loading ? (
@@ -108,14 +112,17 @@ const BlogDetails = () => {
       <div className={Styles.imageWrapper}>
         <img className={Styles.blogImage} src={blog.image} alt="blog image" />
       </div>
-      <div className={Styles.flatIcons}>
+      {
+        account.id === blog.owner ?
+        <div className={Styles.flatIcons}>
         <button className={`${Styles.btn} ${Styles.updateBtn}`} onClick={() => updateClick(id)}>
           <img className={`${Styles.icon}`} src="../../../public/edit.png" alt="" />
         </button>
         <button className={`${Styles.btn} ${Styles.deleteBtn}`} onClick={() => deleteClick(id)}>
           <img className={`${Styles.icon} ${Styles.deleteIcon}`} src="../../../public/delete.png" alt=""/>
         </button>
-      </div>
+      </div>: ""
+      }
       <h1 className={Styles.title}>{blog.title}</h1>
       <div className={Styles.authorAndDate}>
         <p className={`text-muted ${Styles.authorName}`}>
