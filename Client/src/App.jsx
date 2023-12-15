@@ -25,6 +25,7 @@ import ReadBlogPage from "./pages/readBlogPage/ReadBlogPage";
 import { useContext, useEffect } from "react";
 import { LoginContext } from "./components/contextApi/DataProvider";
 import Footer from "./components/footer/Footer";
+import MyAccountPage from "./pages/myAccountPage/MyAccountPage";
 
 
 
@@ -69,6 +70,7 @@ function App() {
             <Route exact path="/create-blog" element={<CreateBlogPage />} />
             <Route exact path="/details/:id" element={<ReadBlogPage />} />
             <Route exact path="/update/:id" element={<UpdateBlogPage />} />
+            <Route exact path="/my-account" element={<MyAccountPage />} />
           </Routes>
           <Footer />
         </div>
@@ -81,9 +83,6 @@ function App() {
             <Route exact path="/reset-password" element={<ResetPasswordPage />} />
             <Route exact path="/forget-password" element={<ForgetPasswordPage />} />
             <Route exact path="/verify-email" element={<OTPPage />} />
-
-             {/* pages */}
-             <Route exact path="/" element={<Home />} />
         </Routes>
       )}
 

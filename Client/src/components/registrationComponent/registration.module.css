@@ -1,67 +1,229 @@
-*{
-    margin: 0;
-    padding: 0;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #081b29;
+}
+
+.wrapper {
+  position: relative;
+  width: 60rem;
+  height: 40rem;
+  background: transparent;
+  border: 2px solid #2ef;
+  overflow: hidden;
+  box-shadow: 0 0 25px #0ef;
+}
+
+.wrapper .formBox {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 60px 0 40px;
+}
+
+.formBox .registrationHeading {
+  font-size: 40px;
+  text-align: center;
+  color: #fff;
+}
+
+.formBox .inputBox {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  margin: 25px 0;
 }
 
 
-  .registrationHeading{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 30px;
-    font-size: 50px;
-    font-weight: 600;
-    color:rgb(105, 6, 197)
-  }
+.inputBox input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #fff;
+  color: #fff;
+  transition: 0.5s;
+}
 
-  .registrationInputField{
-    border: none;
-    border-bottom: 1px solid gray;
-    outline: none;
-    margin: 10px 0;
-    height: 40px;
+.inputBox input:focus{
+  border-bottom-color: #0ef;
+}
+
+.inputBox input::placeholder{
+  color: #0ef;
+  opacity: 0.3;
+}
+
+
+.inputBox i {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #fff;
+}
+
+.formBox .btn {
+  position: relative;
+  width: 100%;
+  height: 45px;
+  background: transparent;
+  border: 2px solid #0ef;
+  outline: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 600;
+  z-index: 1;
+  overflow: hidden;
+  margin-top: 40px;
+}
+
+.formBox .btn::before{
+  content: '';
+  position: absolute;
+  top:-100%;
+  left:0;
+  width: 100%;
+  height: 300%;
+  background: linear-gradient(#081b29, #0ef, #081b29, #0ef);
+  z-index: -1;
+  transition: 0.5s;
+}
+
+.formBox .btn:hover::before{
+  top: 0;
+}
+
+.formBox .loginLink {
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  margin: 20px 0 10px;
+}
+
+.loginLink p a {
+  text-decoration: none;
+  color: #0ef;
+  font-weight: 600;
+}
+
+.loginLink p a:hover {
+  text-decoration: underline;
+}
+
+.wrapper .text{
+  position:absolute;
+  top:0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: right;
+  padding: 0 40px 0 5rem;
+  color: #fff;
+}
+
+.bgChange{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80rem;
+  height: 60rem;
+  background: linear-gradient(45deg, #081b29, #0ef);
+  border-bottom: 3px solid #0ef;
+  transform: rotate(27deg) skewY(30deg);
+  transform-origin: right bottom
+}
+
+
+@media only screen and (max-width: 1091px){
+  .wrapper{
+    width: 55rem;
+  }
+  .bgChange{
+    transform: rotate(29deg) skewY(30deg);
+  }
+}
+
+@media only screen and (max-width: 991px){
+  .wrapper{
+    width: 50rem;
+  }
+  .bgChange{
+    transform: rotate(33deg) skewY(30deg);
+  }
+}
+
+@media only screen and (max-width: 867px){
+  .wrapper{
+    width: 45rem;
+  }
+  .bgChange{
+    transform: rotate(35deg) skewY(30deg);
+  }
+  .wrapper .text{
+    padding: 0 40px 0 3rem;
+  
+  }
+}
+@media only screen and (max-width: 767px){
+  .wrapper{
+    width: 27rem;
+  }
+  .bgChange{
+    display: none;
+  }
+  .wrapper .text{
+    display: none;
+  
+  }
+  .wrapper .formBox {
     width: 100%;
-    font-size: 16px;
   }
-
-  .registrationButtons{
-    margin-top: 50px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+  .wrapper .formBox {
+    padding: 40px;
   }
+}
 
-  .registrationBtn{
-    padding: 7px 30px;
-    cursor: pointer;
-    border: 1px solid rgb(105, 6, 197)
+@media only screen and (max-width: 567px){
+  .wrapper{
+    width: 22rem;
   }
+}
 
-  .registrationBtn:hover{
-    background-color: rgb(105, 6, 197);
-    color: white;
+@media only screen and (max-width: 467px){
+  .wrapper{
+    width: 19rem;
   }
+}
 
-
-  @media only screen and (max-width: 667px){
-    .registrationHeading{
-      font-size: 40px;
-    }
+@media only screen and (max-width: 367px){
+  .wrapper{
+    width: 16rem;
   }
-
-
-  @media only screen and (max-width: 391px){
-    .registrationHeading{
-      margin-bottom: 20px;
-    }
-
-    .registrationButtons{
-      display: flex;
-      flex-direction: column;
-      margin-top: 30px;
-    }
-
-    .registrationBtn{
-      margin: 10px 0;
-    }
+  .formBox .registrationHeading {
+    font-size: 30px;
   }
+  .wrapper .formBox {
+    padding: 20px;
+  }
+}

@@ -18,6 +18,7 @@ const Header = () => {
     const {setLoggedIn} = useContext(LoginContext)
     const handleLogout = () => {
         localStorage.removeItem('access token')
+        localStorage.removeItem('account')
         setLoggedIn(false)
         toast.warning("Please Login")
     }

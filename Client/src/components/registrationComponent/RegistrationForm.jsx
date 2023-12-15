@@ -22,11 +22,9 @@ const RegistrationForm = () => {
         })
     }
    
-    const [loading, setLoading] = useState(false);
 
     // Sent data into backend using fetch
     const handleClick = async () => {
-        setLoading(true);
         const { name, email, userName, password } = state;
         const registrationUrl = 'http://localhost:8500/api/v1/registration';
       
@@ -56,31 +54,48 @@ const RegistrationForm = () => {
         } catch (error) {
           console.error('Registration failed:', error);
           toast.error('Registration failed. Please try again.');
-        } finally {
-          setLoading(false);
         }
       };
       
 
     //Navigate login page
     const navigate = useNavigate()
-    const loginPage = () => {
-        navigate('/login')
-    }
 
     //Return JSX
     return (
-                <div className={Styles.inputForm}>
-                    <h1 className={Styles.registrationHeading}>Registration</h1>
-                    <input type='text' className={Styles.registrationInputField} placeholder="Enter Your Name" onChange={(e)=>setValues("name", e.target.value)}/>
-                    <input type='text' className={Styles.registrationInputField} placeholder="Enter Your Email" onChange={(e)=>setValues("email", e.target.value)}/>
-                    <input type='text' className={Styles.registrationInputField} placeholder="Enter Your UserName" onChange={(e)=>setValues("userName", e.target.value)}/>
-                    <input type='password' className={Styles.registrationInputField} placeholder="Password" onChange={(e)=>setValues("password", e.target.value)}/>
-                    <div className={Styles.registrationButtons}>
-                        <button className={`btn ${Styles.registrationBtn}`}  onClick={handleClick}>Submit</button>
-                        <button className={`btn ${Styles.registrationBtn}`} onClick={loginPage}>Already a user</button>
+                <div className={`${Styles.container}`}>
+                <div className={`${Styles.wrapper}`}>
+                  <span className={`${Styles.bgChange}`}></span>
+                  <div className={`${Styles.formBox}`}>
+                    <h2 className={`${Styles.registrationHeading}`}>Registration</h2>
+                    <div>
+                      <div className={`${Styles.inputBox}`}>
+                        <input type="text" placeholder="Enter Your Name" onChange={(e)=>setValues("name", e.target.value)}/>
+                      </div>
+                      <div className={`${Styles.inputBox}`}>
+                        <input type="text" placeholder="Enter Your Email" onChange={(e)=>setValues("email", e.target.value)}/>
+                      </div>
+                      <div className={`${Styles.inputBox}`}>
+                        <input type="text" placeholder="Enter Your UserName" onChange={(e)=>setValues("userName", e.target.value)}/>
+                      </div>
+                      <div className={`${Styles.inputBox}`}>
+                        <input type="password" placeholder="Enter Your Password" onChange={(e)=>setValues("password", e.target.value)}/>
+                      </div>
+                      <button className={`${Styles.btn}`} onClick={handleClick}>
+                        Sign Up
+                      </button>
+                      <div className={`${Styles.loginLink}`}>
+                        <p>
+                          Already have an account? <a href="/login">Login</a>
+                        </p>
+                      </div>
                     </div>
+                  </div>
+                  <div className={`${Styles.text}`}>
+                    <h2>Welcome To Our Blog Website</h2>
+                  </div>
                 </div>
+              </div>
     );
 };
 
