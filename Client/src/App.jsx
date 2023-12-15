@@ -47,7 +47,7 @@ function App() {
       navigate('/login')
       toast.warning("Please login")
     }
-  }, [setLoggedIn]);
+  }, [isLoggedIn]);
 
 
 
