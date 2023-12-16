@@ -18,8 +18,8 @@ const ReadAllBlogs = () => {
     const readAllBlogClick = async () => {
       try {
         const registrationUrl = category
-          ? "http://localhost:8500/api/v1/read-blog-by-category"
-          : "http://localhost:8500/api/v1/read-blog";
+          ? "https://blog-project-2mkq.onrender.com/api/v1/read-blog-by-category"
+          : "https://blog-project-2mkq.onrender.com/api/v1/read-blog";
 
         const response = await fetch(registrationUrl, {
           method: category ? "POST" : "GET",

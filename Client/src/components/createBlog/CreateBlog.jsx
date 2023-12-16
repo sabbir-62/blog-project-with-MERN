@@ -58,7 +58,8 @@ const handleValueChange = (e) => {
 
 // Handle button click
 const handleAddBlogClick = async () => {
-  const registrationUrl = 'http://localhost:8500/api/v1/create-blog';
+  //http://localhost:8500/api/v1/create-blog
+  const registrationUrl = 'https://blog-project-2mkq.onrender.com/api/v1/create-blog';
   const { file, category, title, description } = state;
 
   try {

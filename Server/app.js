@@ -31,6 +31,13 @@ app.use(limiter);
 //Routes
 readdirSync('./src/routes').map(r => app.use('/api/v1', require(`./src/routes/${r}`)));
 
+app.use("*", (req, res) => {
+    return res.status(404).json({
+        success: false,
+        message: "Invalid Request!"
+    })
+})
+
 
 
 module.exports = app;

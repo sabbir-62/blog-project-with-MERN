@@ -23,7 +23,7 @@ const UpdateBlog = () => {
   useEffect(() => {
     const blogDetails = async () => {
       try {
-        const registrationUrl = "http://localhost:8500/api/v1/blog-details";
+        const registrationUrl = "https://blog-project-2mkq.onrender.com/api/v1/blog-details";
         const response = await fetch(registrationUrl, {
           method: "POST",
           headers: {
@@ -88,7 +88,7 @@ const UpdateBlog = () => {
   };
 
   const handleUpdateBlogClick = async () => {
-    const registrationUrl = 'http://localhost:8500/api/v1/update-blog';
+    const registrationUrl = 'https://blog-project-2mkq.onrender.com/api/v1/update-blog';
     const {id, name, file, category, title, description } = blog;
 
     try {

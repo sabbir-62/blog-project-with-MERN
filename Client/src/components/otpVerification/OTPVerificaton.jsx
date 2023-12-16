@@ -54,7 +54,7 @@ const OTPVerification = () => {
   const handleClick = async (e) => {
     e.preventDefault();
    
-    const registrationUrl = "http://localhost:8500/api/v1/verify-email";
+    const registrationUrl = "https://blog-project-2mkq.onrender.com/api/v1/verify-email";
     const otpValue = otp.join("")
       try {
         fetch(registrationUrl, {
@@ -88,7 +88,7 @@ const OTPVerification = () => {
   const resendOTP = (e) => {
     e.preventDefault();
    
-    const registrationUrl = "http://localhost:8500/api/v1/resend-otp";
+    const registrationUrl = "https://blog-project-2mkq.onrender.com/api/v1/resend-otp";
       try {
         fetch(registrationUrl, {
           method: "POST",

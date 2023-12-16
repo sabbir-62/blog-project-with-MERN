@@ -28,7 +28,7 @@ const ForgetPassword = () => {
         e.preventDefault()
         setLoading(true);
         const {email} = state;
-        const registrationUrl = 'http://localhost:8500/api/v1/forget-password';
+        const registrationUrl = 'https://blog-project-2mkq.onrender.com/api/v1/forget-password';
 
             try{
                 fetch(registrationUrl, {

@@ -16,7 +16,7 @@ const BlogDetails = () => {
   useEffect(() => {
     const blogDetails = async () => {
       try {
-        const registrationUrl = "http://localhost:8500/api/v1/blog-details";
+        const registrationUrl = "https://blog-project-2mkq.onrender.com/api/v1/blog-details";
         const response = await fetch(registrationUrl, {
           method: "POST",
           headers: {
@@ -53,7 +53,7 @@ const BlogDetails = () => {
     const result = window.confirm("Are you sure?");
     if (result) {
       try {
-        const registrationUrl = "http://localhost:8500/api/v1/delete-blog";
+        const registrationUrl = "https://blog-project-2mkq.onrender.com/api/v1/delete-blog";
         const response = await fetch(registrationUrl, {
           method: "POST",
           headers: {

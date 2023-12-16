@@ -48,7 +48,7 @@ const ResetPassword = () => {
         e.preventDefault()
         setLoading(true);
         const {token, id, password, confirmPassword} = state;
-        const registrationUrl = 'http://localhost:8500/api/v1/reset-password';
+        const registrationUrl = 'https://blog-project-2mkq.onrender.com/api/v1/reset-password';
 
         if(password !== confirmPassword){
             toast.error("Password and Confirm Password does not match!")

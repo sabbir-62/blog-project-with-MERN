@@ -26,7 +26,7 @@ const RegistrationForm = () => {
     // Sent data into backend using fetch
     const handleClick = async () => {
         const { name, email, userName, password } = state;
-        const registrationUrl = 'http://localhost:8500/api/v1/registration';
+        const registrationUrl = 'https://blog-project-2mkq.onrender.com/api/v1/registration';
       
         try {
           const response = await fetch(registrationUrl, {
