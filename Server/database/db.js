@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 //Database Connection
 const connection = async () => {
-    const uri = process.env.DATABASE
+    const uri =  "mongodb+srv://sabbir:sabbir5313@cluster0.d5mdcgc.mongodb.net/Blog"
 
     mongoose.connect(uri)
         .then(() => {
