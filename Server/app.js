@@ -16,14 +16,15 @@ app.use(cors({ origin: 'http://localhost:5173' }));
 app.use(helmet());
 
 
-// Express rate limit
+// rate limit
 const limiter = expressRateLimit({
-    window: 1 * 60 * 1000,
+    windowMs: 1 * 60 * 1000, // 1 minute
     max: 100,
-    message: 'Too many request sent from this ip. Please try again after 1 minute',
+    message: 'Too many requests sent from this IP. Please try again after 1 minute',
+    headers: true, // Trust headers set by a proxy (if applicable)
     standardHeaders: true,
     legacyHeaders: false
-})
+});
 app.use(limiter);
 
 
