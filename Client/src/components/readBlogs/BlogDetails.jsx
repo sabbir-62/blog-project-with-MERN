@@ -4,6 +4,10 @@ import { toast } from "react-toastify";
 import Styles from "./blogDetails.module.css";
 import { BeatLoader } from "react-spinners";
 
+// icon import
+import deleteImage from "../../assets/delete.png"
+import editImage from "../../assets/edit.png"
+
 
 
 /*------------Blog Details Component----------*/
@@ -116,10 +120,10 @@ const BlogDetails = () => {
         account.id === blog.owner ?
         <div className={Styles.flatIcons}>
         <button className={`${Styles.btn} ${Styles.updateBtn}`} onClick={() => updateClick(id)}>
-          <img className={`${Styles.icon}`} src="../../../public/edit.png" alt="" />
+          <img className={`${Styles.icon}`} src={editImage} alt="" />
         </button>
         <button className={`${Styles.btn} ${Styles.deleteBtn}`} onClick={() => deleteClick(id)}>
-          <img className={`${Styles.icon} ${Styles.deleteIcon}`} src="../../../public/delete.png" alt=""/>
+          <img className={`${Styles.icon} ${Styles.deleteIcon}`} src={deleteImage} alt=""/>
         </button>
       </div>: ""
       }
