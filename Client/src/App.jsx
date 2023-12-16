@@ -44,6 +44,7 @@ function App() {
       setLoggedIn(true);
     } else {
       setLoggedIn(false);
+      navigate('/login')
     }
   }, [isLoggedIn]);
 
