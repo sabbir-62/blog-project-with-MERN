@@ -105,7 +105,7 @@ const LoginFrom = () => {
             </button>
             <div className={`${Styles.loginLink}`}>
               <p>
-                New User?<span onClick={registrationPage}>Registration</span>
+                New User?<span onClick={registrationPage}> Registration</span>
               </p>
             </div>
           </div>
