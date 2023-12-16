@@ -116,10 +116,10 @@ const BlogDetails = () => {
         account.id === blog.owner ?
         <div className={Styles.flatIcons}>
         <button className={`${Styles.btn} ${Styles.updateBtn}`} onClick={() => updateClick(id)}>
-          <img className={`${Styles.icon}`} src="../../assets/edit.png" alt="" />
+          <img className={`${Styles.icon}`} src="../../../public/edit.png" alt="" />
         </button>
         <button className={`${Styles.btn} ${Styles.deleteBtn}`} onClick={() => deleteClick(id)}>
-          <img className={`${Styles.icon} ${Styles.deleteIcon}`} src="../../assets/delete.png" alt=""/>
+          <img className={`${Styles.icon} ${Styles.deleteIcon}`} src="../../../public/delete.png" alt=""/>
         </button>
       </div>: ""
       }
