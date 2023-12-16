@@ -101,7 +101,7 @@ const LoginFrom = () => {
               />
             </div>
             <button className={`${Styles.btn}`} onClick={handleClick}>
-              Sign Up
+              Login
             </button>
             <div className={`${Styles.loginLink}`}>
               <p>
