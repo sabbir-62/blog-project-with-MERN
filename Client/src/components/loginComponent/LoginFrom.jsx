@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useState, useContext } from "react";
 import Styles from "./login.module.css";
-import { NavLink } from "react-router-dom";
 import { DataContext, LoginContext } from "../contextApi/DataProvider";
 
 /*----------Login form----------*/
@@ -24,11 +23,9 @@ const LoginFrom = () => {
     });
   };
 
-  const [loading, setLoading] = useState(false);
 
   // Sent data into backend using fetch
   const handleClick = async () => {
-    setLoading(true);
     const { email, password } = state;
     const registrationUrl = "https://blog-project-2mkq.onrender.com/api/v1/login";
 
@@ -66,8 +63,6 @@ const LoginFrom = () => {
     } catch (error) {
       console.error("Login failed:", error);
       toast.error("Login failed. Please try again.");
-    } finally {
-      setLoading(false);
     }
   };
 
