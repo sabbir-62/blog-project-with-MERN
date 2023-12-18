@@ -1,7 +1,7 @@
 //Imports Required components
 import { toast } from 'react-toastify';
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Styles from "./registration.module.css"
 
 
@@ -86,7 +86,7 @@ const RegistrationForm = () => {
                       </button>
                       <div className={`${Styles.loginLink}`}>
                         <p>
-                          Already have an account? <a href="/login">Login</a>
+                          Already have an account? <Link to="/login">Login</Link>
                         </p>
                       </div>
                     </div>
