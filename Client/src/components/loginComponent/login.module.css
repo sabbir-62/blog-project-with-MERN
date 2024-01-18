@@ -155,6 +155,18 @@
   transform-origin: right bottom
 }
 
+.forgetPassword{
+  color: #0ef;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: end;
+  cursor: pointer;
+}
+
+.forgetPassword:hover {
+  text-decoration: underline;
+}
+
 
 @media only screen and (max-width: 1091px){
   .wrapper{
