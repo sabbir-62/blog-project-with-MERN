@@ -4,6 +4,7 @@ import { useState, useContext } from "react";
 import Styles from "./login.module.css";
 import { DataContext, LoginContext } from "../contextApi/DataProvider";
 
+
 /*----------Login form----------*/
 const LoginFrom = () => {
   const [state, setState] = useState({
@@ -72,6 +73,11 @@ const LoginFrom = () => {
     navigate("/registration");
   };
 
+  // navigate forget password page
+  const forgetPassword = () => {
+    navigate("/forget-password")
+  }
+
   // return jsx
   return (
 
@@ -95,6 +101,7 @@ const LoginFrom = () => {
                 onChange={(e) => setValues("password", e.target.value)}
               />
             </div>
+            <div className={Styles.forgetPassword} onClick={forgetPassword}>Forget password?</div>
             <button className={`${Styles.btn}`} onClick={handleClick}>
               Login
             </button>
