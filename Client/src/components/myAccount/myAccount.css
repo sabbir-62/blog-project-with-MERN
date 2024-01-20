@@ -1,0 +1,119 @@
+.profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profile-card{   
+    width: 55%;
+}
+
+.profile-form{
+    width: 100%;
+    margin: 7rem 0 2rem 0;
+    padding: 2rem;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    border-radius: 8px;
+}
+
+.profile-box{
+}
+
+.profile-heading{
+    text-align: center;
+    padding: 15px;
+    margin-bottom: 50px;
+    color: rgb(66, 5, 122);
+    font-weight: 700;
+    border: outset;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.profile-field{
+    display: grid;
+    grid-template-columns: 6fr 6fr;
+    margin: 20px 0;
+}
+label{
+    display: flex;
+    align-items: center;
+}
+
+.profile-input{
+   padding: 6px 10px;
+   border-radius: 5px;
+   border: 1px solid gray;
+}
+
+.account-buttons{
+    display: flex;
+   justify-content: space-between;
+}
+
+.ac-btn{
+    width: 250px;
+    height: 45px;
+}
+
+/* Media Query for screens with a maximum width of 768px (typical for mobile devices) */
+@media (max-width: 1399px) {
+    .ac-btn{
+        width: 220px;
+    }
+    .profile-card{
+        width: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .profile-form{
+        width: 100vw;
+    }
+}
+
+@media (max-width: 1199px) {
+    .ac-btn{
+        width: 200px;
+    }
+    .profile-card{
+        width: 65%;
+    }
+}
+
+@media (max-width: 991px) {
+    .profile-card{
+        width: 70%;
+    }
+    .profile-field{
+        display: grid;
+        grid-template-columns: 12fr;
+        margin: 20px 0;
+    }
+    .account-buttons{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ac-btn{
+        width: 100%;
+    }
+    
+}
+
+@media (max-width: 767px) {
+    .profile-form{
+        width: 100vw;
+    }
+
+    .profile-card{
+        width: 80%;
+    }
+    
+}
+
+@media (max-width: 567px) {
+    .profile-card{
+        width: 90%;
+    }
+    
+}
