@@ -10,7 +10,7 @@ import { BeatLoader } from "react-spinners";
 
 /*-----------Main function component---------*/
 const MyAccount = () => {
-    const [loading, setLoading] = useState(false)  //for set loading spinner
+    const [loading, setLoading] = useState(true)  //for set loading spinner
     const [state, setState] = useState({
         name: "",
         userName: "",
@@ -27,6 +27,7 @@ const MyAccount = () => {
             userName: account.userName,
             email: account.email
         })
+        setLoading(false)
     }
 
     // Set input values into state
